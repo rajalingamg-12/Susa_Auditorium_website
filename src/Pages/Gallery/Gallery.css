@@ -1,0 +1,845 @@
+/* =========================================================
+   SUSA THIRUMAL AUDITORIUM
+   GALLERY PAGE
+========================================================= */
+
+.susa-gallery-page,
+.susa-gallery-page * {
+  box-sizing: border-box;
+}
+
+.susa-gallery-page {
+  --gallery-navy: #03101d;
+  --gallery-navy-light: #0b1d2d;
+  --gallery-navy-soft: #102536;
+
+  --gallery-gold: #bf9d52;
+  --gallery-gold-light: #f0d18a;
+  --gallery-gold-dark: #987735;
+
+  --gallery-white: #ffffff;
+  --gallery-soft: #f5f2eb;
+  --gallery-soft-dark: #ebe6da;
+
+  --gallery-text: #18212a;
+  --gallery-muted: #69717a;
+  --gallery-border: rgba(3, 16, 29, 0.13);
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: var(--gallery-white);
+  color: var(--gallery-text);
+
+  font-family: inherit;
+}
+
+.susa-gallery-page img {
+  max-width: 100%;
+}
+
+.susa-gallery-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.susa-gallery-hero {
+  position: relative;
+  min-height: 710px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  
+  background-color: var(--gallery-navy);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.susa-gallery-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+ background:
+  linear-gradient(
+    115deg,
+    rgba(31, 43, 55, 0.48),
+    rgba(66, 83, 99, 0.30),
+    rgba(33, 39, 44, 0.18)
+  );
+}
+
+.susa-gallery-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(191, 157, 82, 0.18),
+      transparent 35%
+    );
+}
+
+.susa-gallery-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(820px, calc(100% - 48px));
+  margin: 0 auto;
+
+  text-align: center;
+  color: var(--gallery-white);
+
+  animation: susaGalleryHeroUp 0.9s ease both;
+}
+
+.susa-gallery-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  color: var(--gallery-gold-light);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.susa-gallery-eyebrow svg {
+  font-size: 15px;
+}
+
+.susa-gallery-hero h1 {
+  margin: 0;
+
+  font-size: clamp(44px, 6vw, 78px);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.susa-gallery-hero h1 span {
+  display: block;
+  color: var(--gallery-gold-light);
+}
+
+.susa-gallery-hero p {
+  max-width: 650px;
+  margin: 28px auto 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.susa-gallery-intro {
+  padding: 105px 0 70px;
+  background: var(--gallery-white);
+}
+
+.susa-gallery-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 90px;
+  align-items: end;
+}
+
+.susa-gallery-section-label {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  color: var(--gallery-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.susa-gallery-intro h2,
+.susa-gallery-feature-content h2,
+.susa-gallery-cta h2 {
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+}
+
+.susa-gallery-intro h2 span,
+.susa-gallery-feature-content h2 span,
+.susa-gallery-cta h2 span {
+  color: var(--gallery-gold-dark);
+}
+
+.susa-gallery-intro-grid > p {
+  margin: 0;
+
+  color: var(--gallery-muted);
+
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   SHOWCASE
+========================================================= */
+
+.susa-gallery-showcase {
+  padding: 35px 0 110px;
+  background: var(--gallery-white);
+}
+
+.susa-gallery-filter-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+
+  margin-bottom: 42px;
+}
+
+.susa-gallery-filter-intro span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: var(--gallery-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.susa-gallery-filter-intro h3 {
+  margin: 0;
+
+  color: var(--gallery-text);
+
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.susa-gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.susa-gallery-filter {
+  padding: 11px 19px;
+
+  border: 1px solid var(--gallery-border);
+  border-radius: 30px;
+
+  background: transparent;
+  color: var(--gallery-muted);
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.susa-gallery-filter:hover {
+  border-color: var(--gallery-gold);
+  color: var(--gallery-gold-dark);
+
+  transform: translateY(-2px);
+}
+
+.susa-gallery-filter.active {
+  border-color: var(--gallery-navy);
+  background: var(--gallery-navy);
+  color: var(--gallery-white);
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.susa-gallery-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-auto-rows: 300px;
+
+  gap: 18px;
+}
+
+.susa-gallery-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background: var(--gallery-navy);
+
+  isolation: isolate;
+}
+
+/* Large first image */
+.susa-gallery-card-1 {
+  grid-row: span 2;
+}
+
+/* Wide fourth image */
+.susa-gallery-card-4 {
+  grid-column: span 2;
+}
+
+.susa-gallery-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 0.65s ease,
+    filter 0.65s ease;
+}
+
+.susa-gallery-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(3, 16, 29, 0.88),
+      rgba(3, 16, 29, 0.08) 65%
+    );
+
+  pointer-events: none;
+}
+
+.susa-gallery-card:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.05);
+}
+
+.susa-gallery-card-overlay {
+  position: absolute;
+  z-index: 2;
+  inset: auto 0 0;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 25px;
+
+  color: var(--gallery-white);
+}
+
+.susa-gallery-card-icon {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(240, 209, 138, 0.55);
+  border-radius: 50%;
+
+  color: var(--gallery-gold-light);
+  background: rgba(3, 16, 29, 0.45);
+
+  backdrop-filter: blur(8px);
+}
+
+.susa-gallery-card-icon svg {
+  font-size: 17px;
+}
+
+.susa-gallery-card-overlay span {
+  display: block;
+  margin-bottom: 5px;
+
+  color: var(--gallery-gold-light);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.susa-gallery-card-overlay h3 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   FEATURED EXPERIENCE
+========================================================= */
+
+.susa-gallery-feature {
+  padding: 110px 0;
+  background: var(--gallery-soft);
+}
+
+.susa-gallery-feature-grid {
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.susa-gallery-feature-image {
+  position: relative;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  background: var(--gallery-navy);
+}
+
+.susa-gallery-feature-image::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  inset: 18px;
+
+  border: 1px solid rgba(240, 209, 138, 0.55);
+
+  pointer-events: none;
+}
+
+.susa-gallery-feature-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.susa-gallery-feature-image:hover img {
+  transform: scale(1.04);
+}
+
+.susa-gallery-feature-content p {
+  max-width: 550px;
+
+  margin: 24px 0 30px;
+
+  color: var(--gallery-muted);
+
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.susa-gallery-feature-points {
+  display: grid;
+  gap: 14px;
+
+  margin-bottom: 34px;
+}
+
+.susa-gallery-feature-points div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--gallery-text);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.susa-gallery-feature-points svg {
+  color: var(--gallery-gold-dark);
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.susa-gallery-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 50px;
+
+  padding: 0 24px;
+
+  border: 1px solid var(--gallery-navy);
+
+  background: var(--gallery-navy);
+  color: var(--gallery-white);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.susa-gallery-button svg {
+  transition: transform 0.25s ease;
+}
+
+.susa-gallery-button:hover {
+  background: var(--gallery-gold);
+  border-color: var(--gallery-gold);
+
+  color: var(--gallery-navy);
+
+  transform: translateY(-2px);
+}
+
+.susa-gallery-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.susa-gallery-cta {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 110px 0;
+
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(191, 157, 82, 0.13),
+      transparent 30%
+    ),
+    var(--gallery-navy);
+}
+
+.susa-gallery-cta-content {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.susa-gallery-cta .susa-gallery-section-label {
+  color: var(--gallery-gold-light);
+}
+
+.susa-gallery-cta h2 {
+  color: var(--gallery-white);
+}
+
+.susa-gallery-cta h2 span {
+  color: var(--gallery-gold-light);
+}
+
+.susa-gallery-cta p {
+  max-width: 620px;
+
+  margin: 22px auto 32px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.susa-gallery-cta .susa-gallery-button {
+  border-color: var(--gallery-gold);
+
+  background: var(--gallery-gold);
+  color: var(--gallery-navy);
+}
+
+.susa-gallery-cta .susa-gallery-button:hover {
+  border-color: var(--gallery-white);
+  background: var(--gallery-white);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes susaGalleryHeroUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+  .susa-gallery-intro-grid {
+    gap: 50px;
+  }
+
+  .susa-gallery-feature-grid {
+    gap: 55px;
+  }
+
+  .susa-gallery-grid {
+    grid-auto-rows: 260px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 900px
+========================================================= */
+
+@media (max-width: 900px) {
+  .susa-gallery-hero {
+    min-height: 520px;
+  }
+
+  .susa-gallery-intro {
+    padding-top: 80px;
+  }
+
+  .susa-gallery-intro-grid,
+  .susa-gallery-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-gallery-intro-grid {
+    gap: 25px;
+  }
+
+  .susa-gallery-filter-wrap {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .susa-gallery-filters {
+    justify-content: flex-start;
+  }
+
+  .susa-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 280px;
+  }
+
+  .susa-gallery-card-1 {
+    grid-row: span 1;
+  }
+
+  .susa-gallery-card-4 {
+    grid-column: span 1;
+  }
+
+  .susa-gallery-feature {
+    padding: 80px 0;
+  }
+
+  .susa-gallery-feature-image {
+    min-height: 440px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+  .susa-gallery-container {
+    width: calc(100% - 32px);
+  }
+
+  .susa-gallery-hero {
+    min-height: 500px;
+  }
+
+  .susa-gallery-hero-content {
+    width: calc(100% - 32px);
+  }
+
+  .susa-gallery-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+  }
+
+  .susa-gallery-hero h1 {
+    font-size: 43px;
+    letter-spacing: -1.2px;
+  }
+
+  .susa-gallery-hero p {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .susa-gallery-intro {
+    padding: 70px 0 50px;
+  }
+
+  .susa-gallery-intro h2,
+  .susa-gallery-feature-content h2,
+  .susa-gallery-cta h2 {
+    font-size: 35px;
+  }
+
+  .susa-gallery-showcase {
+    padding: 35px 0 75px;
+  }
+
+  .susa-gallery-filters {
+    width: 100%;
+
+    justify-content: flex-start;
+    gap: 7px;
+  }
+
+  .susa-gallery-filter {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .susa-gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px;
+    gap: 14px;
+  }
+
+  .susa-gallery-card-1,
+  .susa-gallery-card-4 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .susa-gallery-feature {
+    padding: 70px 0;
+  }
+
+  .susa-gallery-feature-image {
+    min-height: 360px;
+  }
+
+  .susa-gallery-feature-image::before {
+    inset: 12px;
+  }
+
+  .susa-gallery-feature-content p {
+    font-size: 14px;
+  }
+
+  .susa-gallery-cta {
+    padding: 75px 0;
+  }
+
+  .susa-gallery-cta p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+  .susa-gallery-container {
+    width: calc(100% - 24px);
+  }
+
+  .susa-gallery-hero h1 {
+    font-size: 38px;
+  }
+
+  .susa-gallery-card-overlay {
+    padding: 18px;
+  }
+
+  .susa-gallery-card-overlay h3 {
+    font-size: 17px;
+  }
+
+  .susa-gallery-card-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .susa-gallery-feature-image {
+    min-height: 300px;
+  }
+
+  .susa-gallery-button {
+    width: 100%;
+  }
+}

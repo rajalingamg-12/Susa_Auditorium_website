@@ -1,0 +1,1661 @@
+/* =========================================================
+   BASE
+========================================================= */
+
+.auditorium-page {
+  --aud-navy: #03101d;
+  --aud-navy-light: #0b1d2d;
+  --aud-navy-soft: #102536;
+
+  --aud-gold: #bf9d52;
+  --aud-gold-light: #f0d18a;
+  --aud-gold-dark: #987735;
+
+  --aud-white: #ffffff;
+  --aud-soft: #f5f2eb;
+  --aud-soft-dark: #ebe6da;
+
+  --aud-text: #18212a;
+  --aud-muted: #69717a;
+  --aud-border: rgba(3, 16, 29, 0.13);
+
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: var(--aud-white);
+  color: var(--aud-text);
+}
+
+.auditorium-page *,
+.auditorium-page *::before,
+.auditorium-page *::after {
+  box-sizing: border-box;
+}
+
+.auditorium-container {
+  width: min(100% - 80px, 1200px);
+  margin: 0 auto;
+}
+
+.auditorium-page img {
+  max-width: 100%;
+}
+
+.auditorium-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   COMMON TYPOGRAPHY
+========================================================= */
+
+.auditorium-section-eyebrow {
+  display: inline-block;
+
+  color: var(--aud-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.auditorium-section-heading {
+  max-width: 760px;
+  margin-bottom: 55px;
+}
+
+.auditorium-section-heading h2 {
+  margin: 16px 0 0;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.auditorium-section-heading h2 span {
+  display: block;
+  color: var(--aud-gold-dark);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.auditorium-hero {
+  position: relative;
+
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  padding-top: 100px;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-hero-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transform: scale(1.02);
+}
+
+.auditorium-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 16, 29, 0.95) 0%,
+      rgba(3, 16, 29, 0.78) 43%,
+      rgba(3, 16, 29, 0.38) 75%,
+      rgba(3, 16, 29, 0.2) 100%
+    );
+}
+
+.auditorium-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.auditorium-hero-content {
+  max-width: 700px;
+  padding: 150px 0 100px;
+
+  animation: auditoriumHeroReveal 0.9s ease both;
+}
+
+.auditorium-eyebrow {
+  display: inline-block;
+
+  color: var(--aud-gold-light);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.auditorium-hero h1 {
+  margin: 22px 0;
+
+  color: var(--aud-white);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.auditorium-hero h1 span {
+  display: block;
+  color: var(--aud-gold-light);
+}
+
+.auditorium-hero p {
+  max-width: 590px;
+  margin: 0 0 35px;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.auditorium-primary-button,
+.auditorium-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 15px 22px;
+
+  border: 1px solid var(--aud-gold);
+
+  background: var(--aud-gold);
+  color: var(--aud-navy);
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.auditorium-primary-button svg,
+.auditorium-cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.auditorium-primary-button:hover,
+.auditorium-cta-button:hover {
+  background: var(--aud-gold-light);
+  border-color: var(--aud-gold-light);
+
+  transform: translateY(-2px);
+}
+
+.auditorium-primary-button:hover svg,
+.auditorium-cta-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.auditorium-intro {
+  padding: 110px 0;
+
+  background: var(--aud-soft);
+}
+
+.auditorium-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.auditorium-intro h2,
+.auditorium-feature-content h2,
+.auditorium-overview-content h2 {
+  margin: 16px 0 0;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.auditorium-intro h2 span,
+.auditorium-feature-content h2 span,
+.auditorium-overview-content h2 span {
+  display: block;
+  color: var(--aud-gold-dark);
+}
+
+.auditorium-intro-grid > p {
+  margin: 0;
+
+  color: var(--aud-muted);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   FEATURE
+========================================================= */
+
+.auditorium-feature {
+  padding: 120px 0;
+
+  background: var(--aud-white);
+}
+
+.auditorium-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.auditorium-feature-image {
+  position: relative;
+
+  min-height: 560px;
+
+  overflow: hidden;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-feature-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.auditorium-feature-image:hover img {
+  transform: scale(1.04);
+}
+
+.auditorium-image-label {
+  position: absolute;
+
+  left: 25px;
+  bottom: 25px;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(240, 209, 138, 0.55);
+
+  background: rgba(3, 16, 29, 0.35);
+
+  color: var(--aud-gold-light);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.auditorium-feature-content > p {
+  margin: 28px 0;
+
+  color: var(--aud-muted);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.auditorium-points {
+  display: grid;
+  gap: 14px;
+
+  margin-top: 30px;
+}
+
+.auditorium-points div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--aud-navy);
+
+  font-size: 13px;
+}
+
+.auditorium-points svg {
+  flex-shrink: 0;
+
+  color: var(--aud-gold-dark);
+
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.auditorium-highlights {
+  padding: 110px 0 120px;
+
+  background: var(--aud-soft);
+}
+
+.auditorium-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid var(--aud-border);
+  border-left: 1px solid var(--aud-border);
+}
+
+.auditorium-highlight-grid article {
+  min-height: 300px;
+
+  padding: 35px;
+
+  border-right: 1px solid var(--aud-border);
+  border-bottom: 1px solid var(--aud-border);
+
+  background: var(--aud-white);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.auditorium-highlight-grid article:hover {
+  background: #fcfbf8;
+  transform: translateY(-4px);
+}
+
+.auditorium-highlight-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 55px;
+
+  border: 1px solid rgba(191, 157, 82, 0.55);
+
+  color: var(--aud-gold-dark);
+
+  font-size: 20px;
+}
+
+.auditorium-highlight-grid h3 {
+  margin: 0 0 12px;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.auditorium-highlight-grid p {
+  max-width: 300px;
+  margin: 0;
+
+  color: var(--aud-muted);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   VENUE OVERVIEW
+========================================================= */
+
+.auditorium-overview {
+  padding: 120px 0;
+
+  background: var(--aud-white);
+}
+
+.auditorium-overview-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.auditorium-overview-content {
+  max-width: 560px;
+}
+
+.auditorium-overview-content > p {
+  margin: 26px 0 0;
+
+  color: var(--aud-muted);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.auditorium-overview-content > p + p {
+  margin-top: 15px;
+}
+
+.auditorium-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 30px;
+
+  color: var(--aud-navy);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
+}
+
+.auditorium-text-link svg {
+  transition: transform 0.3s ease;
+}
+
+.auditorium-text-link:hover {
+  color: var(--aud-gold-dark);
+}
+
+.auditorium-text-link:hover svg {
+  transform: translateX(5px);
+}
+
+.auditorium-overview-image {
+  position: relative;
+
+  min-height: 540px;
+
+  overflow: hidden;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-overview-image img {
+  width: 100%;
+  height: 540px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.auditorium-overview-image:hover img {
+  transform: scale(1.04);
+}
+
+.auditorium-overview-badge {
+  position: absolute;
+
+  right: 25px;
+  bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 15px;
+
+  background: var(--aud-navy);
+
+  color: var(--aud-gold-light);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.auditorium-overview-badge svg {
+  color: var(--aud-gold);
+}
+
+
+/* =========================================================
+   OCCASIONS
+========================================================= */
+
+.auditorium-occasions {
+  padding: 115px 0 125px;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-occasions .auditorium-section-eyebrow {
+  color: var(--aud-gold);
+}
+
+.auditorium-occasions .auditorium-section-heading h2 {
+  color: var(--aud-white);
+}
+
+.auditorium-occasions .auditorium-section-heading h2 span {
+  color: var(--aud-gold-light);
+}
+
+.auditorium-occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.auditorium-occasion-card {
+  overflow: hidden;
+
+  border: 1px solid rgba(240, 209, 138, 0.18);
+
+  background: var(--aud-navy-light);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.auditorium-occasion-card:hover {
+  border-color: rgba(240, 209, 138, 0.55);
+
+  transform: translateY(-6px);
+}
+
+.auditorium-occasion-image {
+  position: relative;
+
+  height: 270px;
+
+  overflow: hidden;
+
+  background: var(--aud-navy-soft);
+}
+
+.auditorium-occasion-image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(3, 16, 29, 0.05),
+    rgba(3, 16, 29, 0.5)
+  );
+}
+
+.auditorium-occasion-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.auditorium-occasion-card:hover
+.auditorium-occasion-image img {
+  transform: scale(1.06);
+}
+
+.auditorium-occasion-image > span {
+  position: absolute;
+
+  left: 20px;
+  top: 20px;
+
+  z-index: 2;
+
+  color: var(--aud-gold-light);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.auditorium-occasion-content {
+  padding: 28px;
+}
+
+.auditorium-occasion-content h3 {
+  margin: 0 0 12px;
+
+  color: var(--aud-white);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.auditorium-occasion-content p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.auditorium-occasion-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 22px;
+
+  color: var(--aud-gold-light);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.auditorium-occasion-content a svg {
+  transition: transform 0.3s ease;
+}
+
+.auditorium-occasion-content a:hover svg {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   GUEST EXPERIENCE
+========================================================= */
+
+.auditorium-experience {
+  padding: 115px 0 120px;
+
+  background: var(--aud-soft);
+}
+
+.auditorium-experience-heading {
+  max-width: 700px;
+
+  margin-bottom: 55px;
+}
+
+.auditorium-experience-heading h2 {
+  margin: 16px 0;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.auditorium-experience-heading h2 span {
+  display: block;
+
+  color: var(--aud-gold-dark);
+}
+
+.auditorium-experience-heading p {
+  max-width: 580px;
+
+  margin: 24px 0 0;
+
+  color: var(--aud-muted);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.auditorium-experience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--aud-border);
+  border-left: 1px solid var(--aud-border);
+}
+
+.auditorium-experience-grid article {
+  min-height: 270px;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--aud-border);
+  border-bottom: 1px solid var(--aud-border);
+
+  background: var(--aud-white);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.auditorium-experience-grid article:hover {
+  background: #fcfbf8;
+
+  transform: translateY(-4px);
+}
+
+.auditorium-experience-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 55px;
+
+  border: 1px solid rgba(191, 157, 82, 0.55);
+
+  color: var(--aud-gold-dark);
+
+  font-size: 19px;
+}
+
+.auditorium-experience-grid h3 {
+  margin: 0 0 10px;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.auditorium-experience-grid p {
+  margin: 0;
+
+  color: var(--aud-muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   EVENT JOURNEY
+========================================================= */
+
+.auditorium-journey {
+  padding: 120px 0;
+
+  background: var(--aud-white);
+}
+
+.auditorium-journey-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.auditorium-journey-heading {
+  position: sticky;
+  top: 120px;
+}
+
+.auditorium-journey-heading h2 {
+  margin: 16px 0;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.auditorium-journey-heading h2 span {
+  display: block;
+
+  color: var(--aud-gold-dark);
+}
+
+.auditorium-journey-heading > p {
+  max-width: 490px;
+
+  margin: 25px 0 0;
+
+  color: var(--aud-muted);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.auditorium-journey-steps {
+  position: relative;
+
+  display: grid;
+  gap: 0;
+}
+
+.auditorium-journey-steps::before {
+  content: "";
+
+  position: absolute;
+
+  top: 25px;
+  bottom: 25px;
+  left: 21px;
+
+  width: 1px;
+
+  background: rgba(191, 157, 82, 0.35);
+}
+
+.auditorium-journey-step {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 44px 1fr;
+
+  gap: 25px;
+
+  padding: 0 0 42px;
+}
+
+.auditorium-journey-step:last-child {
+  padding-bottom: 0;
+}
+
+.auditorium-journey-step > span {
+  position: relative;
+  z-index: 2;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(191, 157, 82, 0.65);
+
+  background: var(--aud-white);
+
+  color: var(--aud-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.auditorium-journey-step > div {
+  padding: 3px 0 0;
+}
+
+.auditorium-journey-step svg {
+  margin-bottom: 12px;
+
+  color: var(--aud-gold-dark);
+
+  font-size: 19px;
+}
+
+.auditorium-journey-step h3 {
+  margin: 0 0 8px;
+
+  color: var(--aud-navy);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.auditorium-journey-step p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: var(--aud-muted);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.auditorium-gallery {
+  padding: 115px 0 120px;
+
+  background: var(--aud-soft);
+}
+
+.auditorium-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.75fr;
+
+  grid-template-rows: 260px 260px;
+
+  gap: 18px;
+}
+
+.auditorium-gallery-large {
+  position: relative;
+
+  grid-row: 1 / 3;
+
+  overflow: hidden;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-gallery-large img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.auditorium-gallery-large:hover img {
+  transform: scale(1.04);
+}
+
+.auditorium-gallery-large::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(3, 16, 29, 0.72) 100%
+  );
+
+  pointer-events: none;
+}
+
+.auditorium-gallery-label {
+  position: absolute;
+
+  left: 25px;
+  bottom: 25px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--aud-white);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.auditorium-gallery-label svg {
+  color: var(--aud-gold-light);
+}
+
+.auditorium-gallery-small {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-gallery-small img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.auditorium-gallery-small:hover img {
+  transform: scale(1.06);
+}
+
+.auditorium-gallery-small::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(3, 16, 29, 0.68) 100%
+  );
+}
+
+.auditorium-gallery-small span {
+  position: absolute;
+
+  left: 18px;
+  bottom: 18px;
+
+  z-index: 2;
+
+  color: var(--aud-white);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   QUICK INFO
+========================================================= */
+
+.auditorium-info {
+  padding: 0;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-left: 1px solid rgba(240, 209, 138, 0.15);
+}
+
+.auditorium-info-card {
+  min-height: 220px;
+
+  padding: 32px 28px;
+
+  border-right: 1px solid rgba(240, 209, 138, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.auditorium-info-card > svg {
+  margin-bottom: 24px;
+
+  color: var(--aud-gold-light);
+
+  font-size: 21px;
+}
+
+.auditorium-info-card > span {
+  margin-bottom: 9px;
+
+  color: var(--aud-gold);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.auditorium-info-card h3 {
+  max-width: 220px;
+
+  margin: 0;
+
+  color: var(--aud-white);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.auditorium-cta {
+  padding: 100px 0;
+
+  background: var(--aud-navy);
+}
+
+.auditorium-cta-inner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  padding: 15px 0;
+}
+
+.auditorium-cta-inner::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: -1px;
+
+  height: 1px;
+
+  background: rgba(240, 209, 138, 0.18);
+}
+
+.auditorium-cta-inner > div:first-child > span {
+  color: var(--aud-gold);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.auditorium-cta h2 {
+  max-width: 650px;
+
+  margin: 18px 0 0;
+
+  color: var(--aud-white);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(40px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.auditorium-cta h2 em {
+  display: block;
+
+  color: var(--aud-gold-light);
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes auditoriumHeroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .auditorium-container {
+    width: min(100% - 50px, 950px);
+  }
+
+  .auditorium-intro-grid {
+    grid-template-columns: 1fr 0.75fr;
+    gap: 55px;
+  }
+
+  .auditorium-feature-grid {
+    gap: 55px;
+  }
+
+  .auditorium-overview-grid {
+    gap: 55px;
+  }
+
+  .auditorium-journey-grid {
+    gap: 60px;
+  }
+
+  .auditorium-experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .auditorium-info-card {
+    min-height: 200px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .auditorium-hero {
+    min-height: 680px;
+  }
+
+  .auditorium-hero-content {
+    max-width: 650px;
+  }
+
+  .auditorium-intro-grid,
+  .auditorium-feature-grid,
+  .auditorium-overview-grid,
+  .auditorium-journey-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .auditorium-feature-image,
+  .auditorium-feature-image img {
+    min-height: 520px;
+  }
+
+  .auditorium-overview-image,
+  .auditorium-overview-image img {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .auditorium-journey-heading {
+    position: static;
+  }
+
+  .auditorium-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auditorium-highlight-grid article {
+    min-height: 250px;
+  }
+
+  .auditorium-occasion-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .auditorium-occasion-card:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 11px);
+  }
+
+  .auditorium-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .auditorium-info-card {
+    border-bottom: 1px solid rgba(240, 209, 138, 0.15);
+  }
+
+  .auditorium-cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .auditorium-container {
+    width: min(100% - 32px, 560px);
+  }
+
+
+  /* HERO */
+
+  .auditorium-hero {
+    min-height: 650px;
+  }
+
+  .auditorium-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 16, 29, 0.94),
+        rgba(3, 16, 29, 0.72)
+      );
+  }
+
+  .auditorium-hero-content {
+    padding: 130px 0 80px;
+  }
+
+  .auditorium-eyebrow,
+  .auditorium-section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .auditorium-hero h1 {
+    margin: 18px 0;
+
+    font-size: 48px;
+    line-height: 0.99;
+  }
+
+  .auditorium-hero p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+
+  /* COMMON */
+
+  .auditorium-intro,
+  .auditorium-feature,
+  .auditorium-highlights,
+  .auditorium-overview,
+  .auditorium-occasions,
+  .auditorium-experience,
+  .auditorium-journey,
+  .auditorium-gallery {
+    padding: 80px 0;
+  }
+
+  .auditorium-section-heading {
+    margin-bottom: 38px;
+  }
+
+  .auditorium-intro h2,
+  .auditorium-feature-content h2,
+  .auditorium-overview-content h2,
+  .auditorium-section-heading h2,
+  .auditorium-experience-heading h2,
+  .auditorium-journey-heading h2,
+  .auditorium-cta h2 {
+    font-size: 40px;
+    line-height: 1;
+  }
+
+
+  /* FEATURE */
+
+  .auditorium-feature-grid {
+    gap: 40px;
+  }
+
+  .auditorium-feature-image,
+  .auditorium-feature-image img {
+    min-height: 380px;
+  }
+
+  .auditorium-feature-content > p {
+    margin: 22px 0;
+  }
+
+
+  /* HIGHLIGHTS */
+
+  .auditorium-highlight-grid article {
+    min-height: 250px;
+
+    padding: 28px;
+  }
+
+  .auditorium-highlight-icon {
+    margin-bottom: 40px;
+  }
+
+
+  /* OVERVIEW */
+
+  .auditorium-overview-grid {
+    gap: 40px;
+  }
+
+  .auditorium-overview-image,
+  .auditorium-overview-image img {
+    height: 380px;
+    min-height: 380px;
+  }
+
+
+  /* OCCASIONS */
+
+  .auditorium-occasion-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .auditorium-occasion-card:last-child {
+    grid-column: auto;
+
+    max-width: none;
+  }
+
+  .auditorium-occasion-image {
+    height: 240px;
+  }
+
+  .auditorium-occasion-content {
+    padding: 24px;
+  }
+
+
+  /* EXPERIENCE */
+
+  .auditorium-experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auditorium-experience-grid article {
+    min-height: 220px;
+
+    padding: 26px;
+  }
+
+  .auditorium-experience-icon {
+    margin-bottom: 38px;
+  }
+
+
+  /* JOURNEY */
+
+  .auditorium-journey-grid {
+    gap: 45px;
+  }
+
+  .auditorium-journey-step {
+    grid-template-columns: 38px 1fr;
+
+    gap: 18px;
+
+    padding-bottom: 35px;
+  }
+
+  .auditorium-journey-steps::before {
+    left: 18px;
+  }
+
+  .auditorium-journey-step > span {
+    width: 38px;
+    height: 38px;
+  }
+
+  .auditorium-journey-step h3 {
+    font-size: 22px;
+  }
+
+
+  /* GALLERY */
+
+  .auditorium-gallery-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 320px 220px 220px;
+
+    gap: 14px;
+  }
+
+  .auditorium-gallery-large {
+    grid-row: auto;
+  }
+
+
+  /* INFO */
+
+  .auditorium-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auditorium-info-card {
+    min-height: 190px;
+
+    padding: 28px;
+  }
+
+
+  /* CTA */
+
+  .auditorium-cta {
+    padding: 75px 0;
+  }
+
+  .auditorium-cta-inner {
+    gap: 35px;
+  }
+
+  .auditorium-primary-button,
+  .auditorium-cta-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .auditorium-container {
+    width: min(100% - 24px, 360px);
+  }
+
+  .auditorium-hero {
+    min-height: 610px;
+  }
+
+  .auditorium-hero-content {
+    padding: 115px 0 70px;
+  }
+
+  .auditorium-hero h1 {
+    font-size: 42px;
+  }
+
+  .auditorium-intro h2,
+  .auditorium-feature-content h2,
+  .auditorium-overview-content h2,
+  .auditorium-section-heading h2,
+  .auditorium-experience-heading h2,
+  .auditorium-journey-heading h2,
+  .auditorium-cta h2 {
+    font-size: 35px;
+  }
+
+  .auditorium-feature-image,
+  .auditorium-feature-image img {
+    min-height: 320px;
+  }
+
+  .auditorium-overview-image,
+  .auditorium-overview-image img {
+    height: 320px;
+    min-height: 320px;
+  }
+
+  .auditorium-occasion-image {
+    height: 210px;
+  }
+
+  .auditorium-gallery-grid {
+    grid-template-rows: 270px 190px 190px;
+  }
+
+}

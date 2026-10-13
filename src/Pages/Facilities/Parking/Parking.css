@@ -1,0 +1,895 @@
+/* =========================================================
+   SUSA THIRUMAL AUDITORIUM
+   PARKING & ACCESSIBILITY
+========================================================= */
+
+.susa-park-page,
+.susa-park-page * {
+    box-sizing: border-box;
+}
+
+.susa-park-page {
+    --park-navy: #03101d;
+    --park-navy-light: #0a1b2a;
+    --park-navy-soft: #102536;
+
+    --park-gold: #bf9d52;
+    --park-gold-light: #efd18b;
+    --park-gold-dark: #987735;
+
+    --park-white: #ffffff;
+    --park-soft: #f5f2eb;
+    --park-soft-dark: #e9e3d7;
+
+    --park-text: #18212a;
+    --park-muted: #69717a;
+    --park-border: rgba(3, 16, 29, 0.12);
+
+    width: 100%;
+    overflow: hidden;
+    background: var(--park-white);
+    color: var(--park-text);
+    font-family: var(--home-body-font, "Poppins", sans-serif);
+}
+
+.susa-park-page img {
+    display: block;
+    width: 100%;
+}
+
+.susa-park-container {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.susa-park-section-eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+
+    color: var(--park-gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.susa-park-section-heading {
+    max-width: 720px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.susa-park-section-heading h2,
+.susa-park-intro h2,
+.susa-park-feature-content h2,
+.susa-park-experience-content h2,
+.susa-park-why h2 {
+    margin: 0;
+
+    color: var(--park-navy);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+}
+
+.susa-park-section-heading h2 span,
+.susa-park-intro h2 span,
+.susa-park-feature-content h2 span,
+.susa-park-experience-content h2 span,
+.susa-park-why h2 span {
+    display: block;
+    color: var(--park-gold);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.susa-park-hero {
+    position: relative;
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    overflow: hidden;
+    background: var(--park-navy);
+}
+
+.susa-park-hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0.62;
+    transform: scale(1.02);
+}
+
+.susa-park-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(3, 16, 29, 0.96) 0%,
+            rgba(3, 16, 29, 0.82) 42%,
+            rgba(3, 16, 29, 0.36) 100%),
+        /* linear-gradient(180deg,
+            rgba(3, 16, 29, 0.2),
+            rgba(3, 16, 29, 0.7)); */
+}
+
+.susa-park-hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.susa-park-hero-content {
+    width: min(680px, 100%);
+    padding: 100px 0;
+}
+
+.susa-park-hero-content .susa-park-eyebrow {
+    display: inline-block;
+    margin-bottom: 20px;
+
+    color: var(--park-gold-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.susa-park-hero-content h1 {
+    margin: 0;
+
+    color: var(--park-white);
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.susa-park-hero-content h1 span {
+    display: block;
+    margin-top: 10px;
+    color: var(--park-gold-light);
+}
+
+.susa-park-hero-content p {
+    max-width: 590px;
+    margin: 28px 0 34px;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.susa-park-primary-button,
+.susa-park-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 52px;
+    padding: 0 25px;
+
+    border: 1px solid var(--park-gold);
+    background: var(--park-gold);
+    color: var(--park-navy);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.susa-park-primary-button svg,
+.susa-park-cta-button svg {
+    font-size: 17px;
+    transition: transform 0.3s ease;
+}
+
+.susa-park-primary-button:hover,
+.susa-park-cta-button:hover {
+    transform: translateY(-3px);
+    background: var(--park-gold-light);
+}
+
+.susa-park-primary-button:hover svg,
+.susa-park-cta-button:hover svg {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.susa-park-intro {
+    padding: 105px 0;
+    background: var(--park-white);
+}
+
+.susa-park-intro-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.susa-park-intro-grid>p {
+    max-width: 620px;
+    margin: 0;
+
+    color: var(--park-muted);
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   FEATURE
+========================================================= */
+
+.susa-park-feature {
+    padding: 100px 0;
+    background: var(--park-soft);
+}
+
+.susa-park-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.susa-park-feature-image {
+    position: relative;
+    min-height: 560px;
+    overflow: hidden;
+    background: var(--park-navy);
+}
+
+.susa-park-feature-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            transparent 55%,
+            rgba(3, 16, 29, 0.72));
+
+    pointer-events: none;
+}
+
+.susa-park-feature-image img {
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.susa-park-feature-image:hover img {
+    transform: scale(1.04);
+}
+
+.susa-park-image-label {
+    position: absolute;
+    left: 26px;
+    bottom: 24px;
+    z-index: 2;
+
+    color: var(--park-gold-light);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+}
+
+.susa-park-feature-content {
+    max-width: 560px;
+}
+
+.susa-park-feature-content>p {
+    margin: 25px 0 30px;
+
+    color: var(--park-muted);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.susa-park-points {
+    display: grid;
+    gap: 13px;
+}
+
+.susa-park-points>div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    color: var(--park-text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.susa-park-points svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+
+    color: var(--park-gold);
+    font-size: 18px;
+}
+
+/* =========================================================
+   FEATURES CARDS
+========================================================= */
+
+.susa-park-features {
+    padding: 110px 0;
+    background: var(--park-white);
+}
+
+.susa-park-feature-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.susa-park-feature-grid-cards article {
+    min-height: 270px;
+    padding: 32px 27px;
+
+    border: 1px solid var(--park-border);
+    background: var(--park-white);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.susa-park-feature-grid-cards article:hover {
+    transform: translateY(-7px);
+    border-color: rgba(191, 157, 82, 0.55);
+    box-shadow: 0 18px 45px rgba(3, 16, 29, 0.09);
+}
+
+.susa-park-feature-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 27px;
+
+    border: 1px solid rgba(191, 157, 82, 0.35);
+    background: rgba(191, 157, 82, 0.08);
+    color: var(--park-gold);
+
+    font-size: 21px;
+}
+
+.susa-park-feature-grid-cards h3 {
+    margin: 0 0 12px;
+
+    color: var(--park-navy);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.susa-park-feature-grid-cards p {
+    margin: 0;
+
+    color: var(--park-muted);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   GUEST EXPERIENCE
+========================================================= */
+
+.susa-park-experience {
+    padding: 110px 0;
+    background: var(--park-navy);
+    color: var(--park-white);
+}
+
+.susa-park-experience-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.susa-park-experience-content {
+    max-width: 620px;
+}
+
+.susa-park-experience-content h2 {
+    color: var(--park-white);
+}
+
+.susa-park-experience-content h2 span {
+    color: var(--park-gold-light);
+}
+
+.susa-park-experience-content>p {
+    margin: 27px 0 30px;
+
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.susa-park-experience-points {
+    display: grid;
+    gap: 15px;
+}
+
+.susa-park-experience-points>div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 14px;
+}
+
+.susa-park-experience-points svg {
+    color: var(--park-gold-light);
+    font-size: 18px;
+}
+
+.susa-park-experience-card {
+    position: relative;
+
+    min-height: 360px;
+    padding: 55px 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid rgba(191, 157, 82, 0.35);
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.015));
+}
+
+.susa-park-experience-number {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    color: rgba(239, 209, 139, 0.35);
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.susa-park-experience-card>svg {
+    margin-bottom: 24px;
+
+    color: var(--park-gold-light);
+    font-size: 35px;
+}
+
+.susa-park-experience-card h3 {
+    margin: 0 0 14px;
+
+    color: var(--park-white);
+    font-size: 29px;
+    font-weight: 500;
+}
+
+.susa-park-experience-card p {
+    max-width: 360px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   EVENT FLOW
+========================================================= */
+
+.susa-park-flow {
+    padding: 110px 0;
+    background: var(--park-soft);
+}
+
+.susa-park-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.susa-park-flow-grid>div {
+    position: relative;
+    min-height: 230px;
+    padding: 30px;
+
+    border-top: 1px solid var(--park-border);
+    border-bottom: 1px solid var(--park-border);
+    border-left: 1px solid var(--park-border);
+}
+
+.susa-park-flow-grid>div:last-child {
+    border-right: 1px solid var(--park-border);
+}
+
+.susa-park-flow-grid>div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background: rgba(191, 157, 82, 0.25);
+}
+
+.susa-park-flow-grid>div:last-child::after {
+    display: none;
+}
+
+.susa-park-flow-grid>div>span {
+    display: block;
+    margin-bottom: 28px;
+
+    color: var(--park-gold-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.susa-park-flow-grid svg {
+    margin-bottom: 17px;
+
+    color: var(--park-gold);
+    font-size: 23px;
+}
+
+.susa-park-flow-grid h3 {
+    margin: 0 0 8px;
+
+    color: var(--park-navy);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.susa-park-flow-grid p {
+    margin: 0;
+
+    color: var(--park-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   WHY
+========================================================= */
+
+.susa-park-why {
+    padding: 100px 0;
+    background: var(--park-white);
+}
+
+.susa-park-why-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.susa-park-why-grid>p {
+    max-width: 610px;
+    margin: 0;
+
+    color: var(--park-muted);
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.susa-park-cta {
+    padding: 85px 0;
+    background: var(--park-navy-light);
+}
+
+.susa-park-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+
+    padding: 58px 65px;
+
+    border: 1px solid rgba(191, 157, 82, 0.28);
+    background:
+        linear-gradient(135deg,
+            rgba(191, 157, 82, 0.08),
+            rgba(255, 255, 255, 0.025));
+}
+
+.susa-park-cta-inner>div>span {
+    display: block;
+    margin-bottom: 14px;
+
+    color: var(--park-gold-light);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.susa-park-cta-inner h2 {
+    margin: 0;
+
+    color: var(--park-white);
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+}
+
+.susa-park-cta-inner h2 em {
+    display: block;
+
+    color: var(--park-gold-light);
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+/* =========================================================
+   RESPONSIVE — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+    .susa-park-container {
+        width: min(100% - 40px, 1000px);
+    }
+
+    .susa-park-feature-grid {
+        gap: 55px;
+    }
+
+    .susa-park-experience-grid {
+        gap: 60px;
+    }
+
+    .susa-park-feature-grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .susa-park-why-grid {
+        gap: 60px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — 900px
+========================================================= */
+
+@media (max-width: 900px) {
+    .susa-park-hero {
+        min-height: 620px;
+    }
+
+    .susa-park-intro-grid,
+    .susa-park-feature-grid,
+    .susa-park-experience-grid,
+    .susa-park-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .susa-park-intro-grid {
+        gap: 30px;
+    }
+
+    .susa-park-feature-grid {
+        gap: 50px;
+    }
+
+    .susa-park-feature-content {
+        max-width: 700px;
+    }
+
+    .susa-park-experience-grid {
+        gap: 55px;
+    }
+
+    .susa-park-experience-card {
+        min-height: 300px;
+    }
+
+    .susa-park-why-grid {
+        gap: 30px;
+    }
+
+    .susa-park-flow-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .susa-park-flow-grid>div:nth-child(2) {
+        border-right: 1px solid var(--park-border);
+    }
+
+    .susa-park-flow-grid>div:nth-child(3),
+    .susa-park-flow-grid>div:nth-child(4) {
+        border-top: 0;
+    }
+
+    .susa-park-flow-grid>div:nth-child(3) {
+        border-left: 1px solid var(--park-border);
+    }
+
+    .susa-park-flow-grid>div::after {
+        display: none;
+    }
+
+    .susa-park-cta-inner {
+        padding: 45px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+    .susa-park-container {
+        width: min(100% - 30px, 100%);
+    }
+
+    .susa-park-hero {
+        min-height: 590px;
+    }
+
+    .susa-park-hero-content {
+        padding: 80px 0;
+    }
+
+    .susa-park-hero-content h1 {
+        font-size: clamp(42px, 12vw, 60px);
+    }
+
+    .susa-park-hero-content p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .susa-park-intro,
+    .susa-park-feature,
+    .susa-park-features,
+    .susa-park-experience,
+    .susa-park-flow,
+    .susa-park-why {
+        padding: 75px 0;
+    }
+
+    .susa-park-section-heading {
+        margin-bottom: 38px;
+    }
+
+    .susa-park-section-heading h2,
+    .susa-park-intro h2,
+    .susa-park-feature-content h2,
+    .susa-park-experience-content h2,
+    .susa-park-why h2 {
+        font-size: 35px;
+    }
+
+    .susa-park-feature-image {
+        min-height: 400px;
+    }
+
+    .susa-park-feature-image img {
+        min-height: 400px;
+    }
+
+    .susa-park-feature-grid-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .susa-park-feature-grid-cards article {
+        min-height: auto;
+    }
+
+    .susa-park-experience-card {
+        min-height: 280px;
+        padding: 40px 30px;
+    }
+
+    .susa-park-flow-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .susa-park-flow-grid>div {
+        min-height: auto;
+        border-right: 1px solid var(--park-border);
+    }
+
+    .susa-park-flow-grid>div:nth-child(2),
+    .susa-park-flow-grid>div:nth-child(3),
+    .susa-park-flow-grid>div:nth-child(4) {
+        border-top: 0;
+    }
+
+    .susa-park-flow-grid>div:nth-child(3) {
+        border-left: 1px solid var(--park-border);
+    }
+
+    .susa-park-cta {
+        padding: 55px 0;
+    }
+
+    .susa-park-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px 25px;
+    }
+
+    .susa-park-cta-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+    .susa-park-container {
+        width: min(100% - 24px, 100%);
+    }
+
+    .susa-park-hero-content h1 {
+        font-size: 40px;
+    }
+
+    .susa-park-section-heading h2,
+    .susa-park-intro h2,
+    .susa-park-feature-content h2,
+    .susa-park-experience-content h2,
+    .susa-park-why h2 {
+        font-size: 31px;
+    }
+
+    .susa-park-feature-image,
+    .susa-park-feature-image img {
+        min-height: 340px;
+    }
+
+    .susa-park-experience-card {
+        padding: 32px 23px;
+    }
+
+    .susa-park-cta-inner h2 {
+        font-size: 32px;
+    }
+}

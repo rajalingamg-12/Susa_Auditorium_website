@@ -1,0 +1,1443 @@
+/* =========================================================
+   BOOKING PAGE
+========================================================= */
+
+.susa-booking-page,
+.susa-booking-page * {
+  box-sizing: border-box;
+}
+
+.susa-booking-page {
+  --booking-navy: #03101d;
+  --booking-navy-light: #0b1d2d;
+  --booking-navy-soft: #102536;
+
+  --booking-gold: #bf9d52;
+  --booking-gold-light: #f0d18a;
+  --booking-gold-dark: #987735;
+
+  --booking-white: #ffffff;
+  --booking-soft: #f5f2eb;
+  --booking-soft-dark: #ebe6da;
+
+  --booking-text: #18212a;
+  --booking-muted: #69717a;
+  --booking-border: rgba(3, 16, 29, 0.13);
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: var(--booking-white);
+  color: var(--booking-text);
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.susa-booking-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.susa-booking-hero {
+  position: relative;
+
+  min-height: 780px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--booking-navy);
+}
+
+.susa-booking-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(3, 16, 29, 0.62),
+      rgba(3, 16, 29, 0.34),
+      rgba(3, 16, 29, 0.16)
+    );
+}
+
+.susa-booking-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 78% 35%,
+      rgba(240, 209, 138, 0.22),
+      transparent 35%
+    );
+}
+
+.susa-booking-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, calc(100% - 48px));
+  margin: 0 auto;
+
+  text-align: center;
+  color: var(--booking-white);
+
+  animation: susaBookingHeroUp 0.9s ease both;
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+========================================================= */
+
+.susa-booking-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  color: var(--booking-gold-light);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.8px;
+}
+
+.susa-booking-eyebrow svg {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   HERO LINE
+========================================================= */
+
+.susa-booking-hero-line {
+  width: 48px;
+  height: 1px;
+
+  margin: 0 auto 27px;
+
+  background: var(--booking-gold-light);
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.susa-booking-hero h1 {
+  margin: 0;
+
+  font-size: clamp(48px, 6.5vw, 82px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -2.5px;
+}
+
+.susa-booking-hero h1 span {
+  display: block;
+
+  color: var(--booking-gold-light);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.susa-booking-hero p {
+  max-width: 650px;
+
+  margin: 27px auto 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO META
+========================================================= */
+
+.susa-booking-hero-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  margin-top: 35px;
+}
+
+.susa-booking-hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.susa-booking-hero-meta svg {
+  color: var(--booking-gold-light);
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   HERO NUMBER
+========================================================= */
+
+.susa-booking-hero-number {
+  position: absolute;
+  z-index: 2;
+
+  right: 38px;
+  bottom: 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.susa-booking-hero-number span {
+  color: var(--booking-gold-light);
+
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.susa-booking-intro {
+  padding: 105px 0 80px;
+
+  background: var(--booking-white);
+}
+
+.susa-booking-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.susa-booking-label {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  color: var(--booking-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+
+/* =========================================================
+   INTRO TITLE
+========================================================= */
+
+.susa-booking-intro h2 {
+  max-width: 600px;
+
+  margin: 0;
+
+  font-size: clamp(38px, 4.5vw, 57px);
+  line-height: 1.08;
+  font-weight: 600;
+
+  letter-spacing: -1.5px;
+}
+
+.susa-booking-intro h2 span {
+  display: block;
+
+  color: var(--booking-gold-dark);
+}
+
+
+/* =========================================================
+   INTRO COPY
+========================================================= */
+
+.susa-booking-intro-copy {
+  position: relative;
+
+  padding-left: 30px;
+
+  border-left: 1px solid var(--booking-border);
+}
+
+.susa-booking-intro-copy p {
+  margin: 0;
+
+  color: var(--booking-muted);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.susa-booking-intro-mark {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--booking-gold-dark);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MAIN BOOKING SECTION
+========================================================= */
+
+.susa-booking-section {
+  padding: 30px 0 115px;
+
+  background: var(--booking-white);
+}
+
+.susa-booking-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(320px, 0.75fr);
+
+  gap: 45px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.susa-booking-form-card {
+  padding: 45px;
+
+  border: 1px solid var(--booking-border);
+
+  background: var(--booking-white);
+
+  box-shadow:
+    0 25px 65px rgba(3, 16, 29, 0.07);
+}
+
+
+/* =========================================================
+   FORM TOP
+========================================================= */
+
+.susa-booking-form-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.susa-booking-form-top > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.susa-booking-form-top > svg {
+  color: var(--booking-gold-dark);
+
+  font-size: 20px;
+}
+
+.susa-booking-form-number {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--booking-border);
+
+  color: var(--booking-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FORM HEADING
+========================================================= */
+
+.susa-booking-form-heading {
+  margin-bottom: 38px;
+}
+
+.susa-booking-form-heading h3 {
+  max-width: 600px;
+
+  margin: 0 0 12px;
+
+  color: var(--booking-text);
+
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 600;
+
+  letter-spacing: -0.8px;
+}
+
+.susa-booking-form-heading h3 span {
+  color: var(--booking-gold-dark);
+}
+
+.susa-booking-form-heading p {
+  max-width: 580px;
+
+  margin: 0;
+
+  color: var(--booking-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.susa-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.susa-booking-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  padding-top: 5px;
+}
+
+.susa-booking-form-section-title {
+  display: block;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid var(--booking-border);
+
+  color: var(--booking-gold-dark);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+.susa-booking-form-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+
+.susa-booking-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.susa-booking-field label {
+  color: var(--booking-text);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+.susa-booking-field input,
+.susa-booking-field select,
+.susa-booking-field textarea {
+  width: 100%;
+
+  border: 1px solid var(--booking-border);
+  border-radius: 0;
+
+  outline: none;
+
+  background: #fff;
+  color: var(--booking-text);
+
+  font: inherit;
+  font-size: 13px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.susa-booking-field input,
+.susa-booking-field select {
+  height: 51px;
+
+  padding: 0 15px;
+}
+
+
+.susa-booking-field textarea {
+  min-height: 135px;
+
+  padding: 14px 15px;
+
+  resize: vertical;
+
+  line-height: 1.65;
+}
+
+
+.susa-booking-field input::placeholder,
+.susa-booking-field textarea::placeholder {
+  color: #9ba1a6;
+}
+
+
+.susa-booking-field input:focus,
+.susa-booking-field select:focus,
+.susa-booking-field textarea:focus {
+  border-color: var(--booking-gold);
+
+  background: #fffdf8;
+
+  box-shadow:
+    0 0 0 3px rgba(191, 157, 82, 0.11);
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.susa-booking-submit {
+  width: 100%;
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: -4px;
+  padding: 0 21px;
+
+  border: 1px solid var(--booking-navy);
+
+  background: var(--booking-navy);
+  color: var(--booking-white);
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.susa-booking-submit:hover {
+  border-color: var(--booking-gold);
+
+  background: var(--booking-gold);
+
+  color: var(--booking-navy);
+}
+
+
+.susa-booking-submit svg {
+  font-size: 17px;
+
+  transition: transform 0.3s ease;
+}
+
+
+.susa-booking-submit:hover svg {
+  transform: translateX(5px);
+}
+
+
+.susa-booking-form-note {
+  margin: -17px 0 0;
+
+  color: #92989d;
+
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.susa-booking-success {
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px;
+
+  text-align: center;
+}
+
+
+.susa-booking-success-icon {
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(191, 157, 82, 0.3);
+
+  background: rgba(191, 157, 82, 0.1);
+
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-success-icon svg {
+  font-size: 34px;
+}
+
+
+.susa-booking-success > span {
+  margin-bottom: 10px;
+
+  color: var(--booking-gold-dark);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+.susa-booking-success h3 {
+  margin: 0 0 12px;
+
+  font-size: 32px;
+  font-weight: 600;
+}
+
+
+.susa-booking-success p {
+  max-width: 460px;
+
+  margin: 0 auto 28px;
+
+  color: var(--booking-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+.susa-booking-reset {
+  min-height: 47px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 20px;
+
+  border: 1px solid var(--booking-border);
+
+  background: transparent;
+  color: var(--booking-text);
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.susa-booking-reset:hover {
+  border-color: var(--booking-gold);
+
+  color: var(--booking-gold-dark);
+}
+
+
+/* =========================================================
+   INFORMATION COLUMN
+========================================================= */
+
+.susa-booking-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   JOURNEY CARD
+========================================================= */
+
+.susa-booking-info-card {
+  position: relative;
+
+  padding: 38px 34px;
+
+  overflow: hidden;
+
+  background: var(--booking-navy);
+
+  color: var(--booking-white);
+}
+
+
+.susa-booking-info-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -90px;
+  bottom: -90px;
+
+  width: 220px;
+  height: 220px;
+
+  border: 1px solid rgba(240, 209, 138, 0.13);
+
+  border-radius: 50%;
+}
+
+
+.susa-booking-info-card .susa-booking-label,
+.susa-booking-contact-card .susa-booking-label {
+  color: var(--booking-gold-light);
+}
+
+
+.susa-booking-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+
+.susa-booking-info-badge {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+
+.susa-booking-info-card h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 16px;
+
+  font-size: 31px;
+  line-height: 1.13;
+  font-weight: 600;
+
+  letter-spacing: -0.5px;
+}
+
+
+.susa-booking-info-card h3 span {
+  color: var(--booking-gold-light);
+}
+
+
+.susa-booking-info-card > p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   JOURNEY LIST
+========================================================= */
+
+.susa-booking-info-list {
+  position: relative;
+
+  display: grid;
+
+  gap: 0;
+
+  margin-top: 34px;
+}
+
+
+.susa-booking-info-list::before {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+  bottom: 20px;
+  left: 15px;
+
+  width: 1px;
+
+  background: rgba(240, 209, 138, 0.22);
+}
+
+
+.susa-booking-info-item {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: 30px 39px 1fr;
+
+  gap: 12px;
+
+  align-items: center;
+
+  padding: 13px 0;
+}
+
+
+.susa-booking-info-number {
+  color: rgba(255, 255, 255, 0.38);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+.susa-booking-info-icon {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(240, 209, 138, 0.32);
+
+  border-radius: 50%;
+
+  background: var(--booking-navy);
+
+  color: var(--booking-gold-light);
+}
+
+
+.susa-booking-info-icon svg {
+  font-size: 15px;
+}
+
+
+.susa-booking-info-item strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--booking-white);
+
+  font-size: 12px;
+}
+
+
+.susa-booking-info-item small {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
+.susa-booking-contact-card {
+  position: relative;
+
+  padding: 32px 34px;
+
+  border: 1px solid var(--booking-border);
+
+  background: var(--booking-soft);
+}
+
+
+.susa-booking-contact-icon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(191, 157, 82, 0.35);
+
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-contact-icon svg {
+  font-size: 18px;
+}
+
+
+.susa-booking-contact-card h3 {
+  margin: 0 0 11px;
+
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+
+.susa-booking-contact-card h3 span {
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-contact-card > p {
+  margin: 0 0 24px;
+
+  color: var(--booking-muted);
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   CONTACT DETAILS
+========================================================= */
+
+.susa-booking-contact-details {
+  display: grid;
+
+  border-top: 1px solid var(--booking-border);
+}
+
+
+.susa-booking-contact-details > a,
+.susa-booking-contact-details > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  min-height: 58px;
+
+  border-bottom: 1px solid var(--booking-border);
+
+  color: var(--booking-text);
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.susa-booking-contact-details > a:hover {
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-contact-details svg {
+  flex: 0 0 auto;
+
+  color: var(--booking-gold-dark);
+
+  font-size: 16px;
+}
+
+
+.susa-booking-contact-details span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.susa-booking-contact-details small {
+  color: var(--booking-gold-dark);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.susa-booking-process {
+  padding: 110px 0;
+
+  background: var(--booking-soft);
+}
+
+
+.susa-booking-process-heading {
+  max-width: 720px;
+
+  margin-bottom: 55px;
+}
+
+
+.susa-booking-process-heading h2 {
+  margin: 0;
+
+  font-size: clamp(36px, 4.5vw, 55px);
+  line-height: 1.1;
+  font-weight: 600;
+
+  letter-spacing: -1.4px;
+}
+
+
+.susa-booking-process-heading h2 span {
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-process-heading p {
+  max-width: 520px;
+
+  margin: 18px 0 0;
+
+  color: var(--booking-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PROCESS GRID
+========================================================= */
+
+.susa-booking-process-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--booking-border);
+  border-left: 1px solid var(--booking-border);
+}
+
+
+.susa-booking-process-item {
+  position: relative;
+
+  min-height: 275px;
+
+  padding: 28px;
+
+  border-right: 1px solid var(--booking-border);
+  border-bottom: 1px solid var(--booking-border);
+
+  background: rgba(255, 255, 255, 0.25);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.susa-booking-process-item:hover {
+  background: var(--booking-white);
+
+  transform: translateY(-4px);
+}
+
+
+.susa-booking-process-item > span {
+  display: block;
+
+  margin-bottom: 28px;
+
+  color: var(--booking-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+
+.susa-booking-process-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(191, 157, 82, 0.35);
+
+  color: var(--booking-gold-dark);
+}
+
+
+.susa-booking-process-icon svg {
+  font-size: 19px;
+}
+
+
+.susa-booking-process-item h3 {
+  margin: 0 0 9px;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+.susa-booking-process-item p {
+  max-width: 210px;
+
+  margin: 0;
+
+  color: var(--booking-muted);
+
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes susaBookingHeroUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .susa-booking-intro-grid {
+    gap: 55px;
+  }
+
+  .susa-booking-grid {
+    gap: 30px;
+  }
+
+  .susa-booking-form-card {
+    padding: 38px;
+  }
+
+  .susa-booking-info-card,
+  .susa-booking-contact-card {
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 900px
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .susa-booking-hero {
+    min-height: 540px;
+  }
+
+  .susa-booking-intro {
+    padding-top: 85px;
+  }
+
+  .susa-booking-intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .susa-booking-intro-copy {
+    max-width: 650px;
+  }
+
+  .susa-booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-booking-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: stretch;
+  }
+
+  .susa-booking-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .susa-booking-container {
+    width: calc(100% - 32px);
+  }
+
+
+  /* HERO */
+
+  .susa-booking-hero {
+    min-height: 540px;
+  }
+
+  .susa-booking-hero-content {
+    width: calc(100% - 32px);
+  }
+
+  .susa-booking-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .susa-booking-hero h1 {
+    font-size: 44px;
+    letter-spacing: -1.5px;
+  }
+
+  .susa-booking-hero p {
+    margin-top: 20px;
+
+    font-size: 14px;
+  }
+
+  .susa-booking-hero-meta {
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+  }
+
+  .susa-booking-hero-number {
+    right: 20px;
+    bottom: 20px;
+  }
+
+
+  /* INTRO */
+
+  .susa-booking-intro {
+    padding: 75px 0 55px;
+  }
+
+  .susa-booking-intro h2 {
+    font-size: 36px;
+  }
+
+  .susa-booking-intro-copy {
+    padding-left: 20px;
+  }
+
+
+  /* BOOKING */
+
+  .susa-booking-section {
+    padding-bottom: 80px;
+  }
+
+  .susa-booking-form-card {
+    padding: 28px 20px;
+  }
+
+  .susa-booking-form-heading h3 {
+    font-size: 27px;
+  }
+
+  .susa-booking-form-row {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .susa-booking-submit {
+    width: 100%;
+  }
+
+
+  /* INFO */
+
+  .susa-booking-info {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-booking-info-card,
+  .susa-booking-contact-card {
+    padding: 30px 24px;
+  }
+
+
+  /* PROCESS */
+
+  .susa-booking-process {
+    padding: 80px 0;
+  }
+
+  .susa-booking-process-heading {
+    margin-bottom: 40px;
+  }
+
+  .susa-booking-process-heading h2 {
+    font-size: 36px;
+  }
+
+  .susa-booking-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-booking-process-item {
+    min-height: 235px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .susa-booking-container {
+    width: calc(100% - 24px);
+  }
+
+  .susa-booking-hero {
+    min-height: 520px;
+  }
+
+  .susa-booking-hero h1 {
+    font-size: 39px;
+  }
+
+  .susa-booking-hero-meta span {
+    font-size: 9px;
+  }
+
+  .susa-booking-form-card {
+    padding: 24px 17px;
+  }
+
+  .susa-booking-form-heading h3 {
+    font-size: 24px;
+  }
+
+  .susa-booking-info-card h3 {
+    font-size: 27px;
+  }
+
+  .susa-booking-process-heading h2 {
+    font-size: 32px;
+  }
+
+}

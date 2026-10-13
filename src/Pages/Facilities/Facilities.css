@@ -1,0 +1,1943 @@
+/* =========================================================
+   SUSA THIRUMAL AUDITORIUM
+   FACILITIES PAGE
+   PREMIUM NAVY + CHAMPAGNE GOLD THEME
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+.susa-fac-page {
+  --fac-navy: #03101d;
+  --fac-navy-light: #0b1d2d;
+  --fac-navy-soft: #102536;
+
+  --fac-gold: #bf9d52;
+  --fac-gold-light: #f0d18a;
+  --fac-gold-dark: #987735;
+
+  --fac-white: #ffffff;
+  --fac-soft: #f5f2eb;
+  --fac-soft-dark: #ebe6da;
+
+  --fac-text: #18212a;
+  --fac-muted: #69717a;
+
+  --fac-border: rgba(3, 16, 29, 0.13);
+
+  --fac-shadow:
+    0 18px 45px rgba(3, 16, 29, 0.07);
+
+  --fac-shadow-hover:
+    0 25px 60px rgba(3, 16, 29, 0.13);
+
+  width: 100%;
+  overflow: hidden;
+
+  background: var(--fac-white);
+  color: var(--fac-text);
+
+  font-family: var(--home-body-font, "Poppins", sans-serif);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.susa-fac-page *,
+.susa-fac-page *::before,
+.susa-fac-page *::after {
+  box-sizing: border-box;
+}
+
+.susa-fac-page img {
+  max-width: 100%;
+}
+
+.susa-fac-page a {
+  text-decoration: none;
+}
+
+.susa-fac-container {
+  width: min(1180px, calc(100% - 50px));
+  margin: 0 auto;
+}
+
+.susa-fac-section-eyebrow {
+  display: block;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.susa-fac-hero {
+  position: relative;
+
+  min-height: 750px;
+
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  background-color: var(--fac-navy);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.susa-fac-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+    115deg,
+    rgba(31, 43, 55, 0.48),
+    rgba(66, 83, 99, 0.30),
+    rgba(33, 39, 44, 0.18)
+  );
+}
+
+.susa-fac-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.susa-fac-hero-content {
+  max-width: 690px;
+  padding: 100px 0;
+}
+
+.susa-fac-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  color: var(--fac-gold-light);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.susa-fac-hero-content h1 {
+  margin: 0;
+
+  color: var(--fac-white);
+
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 600;
+
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+}
+
+.susa-fac-hero-content h1 span {
+  display: block;
+
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-hero-content p {
+  max-width: 590px;
+
+  margin: 28px 0 35px;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.susa-fac-primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 23px;
+
+  background: var(--fac-gold);
+
+  color: var(--fac-navy);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.susa-fac-primary-button svg {
+  font-size: 17px;
+
+  transition: transform 0.3s ease;
+}
+
+.susa-fac-primary-button:hover {
+  background: var(--fac-gold-light);
+  transform: translateY(-2px);
+}
+
+.susa-fac-primary-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.susa-fac-overview {
+  padding: 110px 0;
+
+  background: var(--fac-white);
+}
+
+.susa-fac-overview-heading {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 80px;
+
+  align-items: end;
+
+  margin-bottom: 55px;
+}
+
+.susa-fac-overview-heading h2 {
+  max-width: 650px;
+
+  margin: 15px 0 0;
+
+  color: var(--fac-text);
+
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 600;
+
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.susa-fac-overview-heading h2 span {
+  color: var(--fac-gold-dark);
+}
+
+.susa-fac-overview-heading > p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   OVERVIEW CARDS
+========================================================= */
+
+.susa-fac-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1px;
+
+  background: var(--fac-border);
+
+  border: 1px solid var(--fac-border);
+}
+
+.susa-fac-overview-card {
+  position: relative;
+
+  min-height: 310px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px 27px;
+
+  background: var(--fac-white);
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.susa-fac-overview-card:hover {
+  background: var(--fac-navy);
+  transform: translateY(-5px);
+}
+
+.susa-fac-card-number {
+  align-self: flex-end;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.susa-fac-card-icon {
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 35px 0 22px;
+
+  background: var(--fac-soft);
+
+  color: var(--fac-gold-dark);
+
+  font-size: 21px;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.susa-fac-overview-card:hover .susa-fac-card-icon {
+  background: rgba(240, 209, 138, 0.1);
+
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-overview-card h3 {
+  margin: 0 0 13px;
+
+  color: var(--fac-text);
+
+  font-size: 20px;
+  font-weight: 600;
+
+  transition: color 0.35s ease;
+}
+
+.susa-fac-overview-card:hover h3 {
+  color: var(--fac-white);
+}
+
+.susa-fac-overview-card p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 13px;
+  line-height: 1.75;
+
+  transition: color 0.35s ease;
+}
+
+.susa-fac-overview-card:hover p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.susa-fac-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: auto;
+  padding-top: 25px;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: color 0.3s ease;
+}
+
+.susa-fac-overview-card:hover .susa-fac-card-link {
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-card-link svg {
+  transition: transform 0.3s ease;
+}
+
+.susa-fac-overview-card:hover .susa-fac-card-link svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   EVENT EXPERIENCE
+========================================================= */
+
+.susa-fac-experience {
+  position: relative;
+
+  padding: 125px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--fac-navy),
+      var(--fac-navy-light)
+    );
+}
+
+.susa-fac-experience::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 42%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent,
+      rgba(191, 157, 82, 0.06)
+    );
+
+  pointer-events: none;
+}
+
+.susa-fac-experience-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 750px;
+}
+
+.susa-fac-experience .susa-fac-section-eyebrow {
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-experience-content h2 {
+  margin: 17px 0 22px;
+
+  color: var(--fac-white);
+
+  font-size: clamp(38px, 4.5vw, 58px);
+  font-weight: 600;
+
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+
+.susa-fac-experience-content h2 span {
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-experience-content > p {
+  max-width: 670px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.susa-fac-experience-points {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 28px;
+
+  margin-top: 35px;
+}
+
+.susa-fac-experience-points > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 13px;
+}
+
+.susa-fac-experience-points svg {
+  color: var(--fac-gold-light);
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   OCCASIONS
+========================================================= */
+
+.susa-fac-occasions {
+  padding: 110px 0;
+
+  background: var(--fac-soft);
+}
+
+.susa-fac-occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.susa-fac-occasion-card {
+  position: relative;
+
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--fac-navy),
+      var(--fac-navy-light)
+    );
+
+  color: var(--fac-white);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.susa-fac-occasion-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -45px;
+  bottom: -65px;
+
+  width: 160px;
+  height: 160px;
+
+  border: 1px solid rgba(240, 209, 138, 0.18);
+
+  border-radius: 50%;
+}
+
+.susa-fac-occasion-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 22px 45px rgba(3, 16, 29, 0.18);
+}
+
+.susa-fac-occasion-card > span {
+  position: absolute;
+
+  top: 25px;
+  right: 25px;
+
+  color: var(--fac-gold-light);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.susa-fac-occasion-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.susa-fac-occasion-card > svg {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 15px;
+
+  color: var(--fac-gold-light);
+
+  transition: transform 0.3s ease;
+}
+
+.susa-fac-occasion-card:hover > svg {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   MAIN AUDITORIUM SHOWCASE
+========================================================= */
+
+.susa-fac-showcase {
+  padding: 120px 0;
+
+  background: var(--fac-white);
+}
+
+.susa-fac-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 75px;
+
+  align-items: center;
+}
+
+.susa-fac-showcase-image {
+  position: relative;
+
+  height: 590px;
+
+  overflow: hidden;
+
+  background: var(--fac-navy);
+}
+
+.susa-fac-showcase-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.susa-fac-showcase-image:hover img {
+  transform: scale(1.04);
+}
+
+.susa-fac-showcase-number {
+  position: absolute;
+
+  left: 25px;
+  bottom: 25px;
+
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(3, 16, 29, 0.85);
+
+  border: 1px solid rgba(240, 209, 138, 0.65);
+
+  color: var(--fac-gold-light);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.susa-fac-showcase-content h2 {
+  margin: 17px 0 22px;
+
+  color: var(--fac-text);
+
+  font-size: clamp(37px, 4vw, 55px);
+  font-weight: 600;
+
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.susa-fac-showcase-content h2 span {
+  color: var(--fac-gold-dark);
+}
+
+.susa-fac-showcase-content > p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.susa-fac-showcase-list {
+  display: grid;
+
+  margin: 35px 0;
+}
+
+.susa-fac-showcase-list > div {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid var(--fac-border);
+}
+
+.susa-fac-showcase-list > div:first-child {
+  border-top: 1px solid var(--fac-border);
+}
+
+.susa-fac-showcase-list span {
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.susa-fac-showcase-list p {
+  margin: 0;
+
+  color: var(--fac-text);
+
+  font-size: 13px;
+}
+
+.susa-fac-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.susa-fac-text-link svg {
+  transition: transform 0.3s ease;
+}
+
+.susa-fac-text-link:hover svg {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   BRIDE & GROOM ROOMS
+========================================================= */
+
+.susa-fac-rooms {
+  padding: 110px 0;
+
+  background: var(--fac-soft);
+}
+
+.susa-fac-room-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 28px;
+}
+
+.susa-fac-room-card {
+  overflow: hidden;
+
+  background: var(--fac-white);
+
+  border: 1px solid var(--fac-border);
+
+  box-shadow: var(--fac-shadow);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.susa-fac-room-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: var(--fac-shadow-hover);
+}
+
+.susa-fac-room-image {
+  position: relative;
+
+  height: 390px;
+
+  overflow: hidden;
+
+  background: var(--fac-navy);
+}
+
+.susa-fac-room-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.susa-fac-room-card:hover
+.susa-fac-room-image img {
+  transform: scale(1.05);
+}
+
+.susa-fac-room-number {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(3, 16, 29, 0.8);
+
+  border: 1px solid rgba(240, 209, 138, 0.7);
+
+  color: var(--fac-gold-light);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.susa-fac-room-content {
+  padding: 35px;
+}
+
+.susa-fac-room-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.susa-fac-room-content h3 {
+  margin: 0;
+
+  color: var(--fac-text);
+
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.susa-fac-room-content h3 span {
+  color: var(--fac-gold-dark);
+}
+
+.susa-fac-room-content p {
+  margin: 17px 0 22px;
+
+  color: var(--fac-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.susa-fac-room-content ul {
+  display: grid;
+  gap: 10px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.susa-fac-room-content li {
+  position: relative;
+
+  padding-left: 22px;
+
+  color: var(--fac-text);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.susa-fac-room-content li::before {
+  content: "✓";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  color: var(--fac-gold-dark);
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   ADDITIONAL FACILITIES
+========================================================= */
+
+.susa-fac-additional {
+  padding: 110px 0;
+
+  background: var(--fac-white);
+}
+
+.susa-fac-additional-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 28px;
+}
+
+.susa-fac-additional-card {
+  overflow: hidden;
+
+  background: var(--fac-white);
+
+  border: 1px solid var(--fac-border);
+
+  box-shadow: var(--fac-shadow);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.susa-fac-additional-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: var(--fac-shadow-hover);
+}
+
+.susa-fac-additional-image {
+  position: relative;
+
+  height: 300px;
+
+  overflow: hidden;
+
+  background: var(--fac-navy);
+}
+
+.susa-fac-additional-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.susa-fac-additional-card:hover
+.susa-fac-additional-image img {
+  transform: scale(1.05);
+}
+
+.susa-fac-additional-image > span {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(3, 16, 29, 0.8);
+
+  border: 1px solid rgba(240, 209, 138, 0.6);
+
+  color: var(--fac-gold-light);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.susa-fac-additional-content {
+  padding: 30px;
+}
+
+.susa-fac-additional-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  background: var(--fac-soft);
+
+  color: var(--fac-gold-dark);
+
+  font-size: 21px;
+}
+
+.susa-fac-additional-content h3 {
+  margin: 0 0 12px;
+
+  color: var(--fac-text);
+
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.susa-fac-additional-content p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FEATURED SPACES
+========================================================= */
+
+.susa-fac-spaces {
+  padding: 110px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--fac-navy),
+      var(--fac-navy-light)
+    );
+
+  color: var(--fac-white);
+}
+
+.susa-fac-spaces-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+.susa-fac-spaces-content {
+  max-width: 590px;
+}
+
+.susa-fac-spaces-content
+.susa-fac-section-eyebrow {
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-spaces-content h2 {
+  margin: 16px 0 22px;
+
+  color: var(--fac-white);
+
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.1;
+  font-weight: 600;
+
+  letter-spacing: -1px;
+}
+
+.susa-fac-spaces-content h2 span {
+  color: var(--fac-gold-light);
+}
+
+.susa-fac-spaces-content > p {
+  margin: 0 0 32px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.susa-fac-space-points {
+  display: grid;
+  gap: 15px;
+}
+
+.susa-fac-space-points > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 14px;
+}
+
+.susa-fac-space-points svg {
+  flex-shrink: 0;
+
+  color: var(--fac-gold-light);
+
+  font-size: 18px;
+}
+
+.susa-fac-spaces-image {
+  position: relative;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(240, 209, 138, 0.25);
+}
+
+.susa-fac-spaces-image img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0.9;
+
+  transition: transform 0.7s ease;
+}
+
+.susa-fac-spaces-image:hover img {
+  transform: scale(1.04);
+}
+
+.susa-fac-spaces-image-label {
+  position: absolute;
+
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 16px 18px;
+
+  background: rgba(3, 16, 29, 0.84);
+
+  border: 1px solid rgba(240, 209, 138, 0.3);
+
+  backdrop-filter: blur(8px);
+}
+
+.susa-fac-spaces-image-label span {
+  color: var(--fac-gold-light);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.susa-fac-spaces-image-label strong {
+  color: var(--fac-white);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   COMFORT & CONVENIENCE
+========================================================= */
+
+.susa-fac-comfort {
+  padding: 110px 0;
+
+  background: var(--fac-soft);
+}
+
+.susa-fac-comfort-heading {
+  max-width: 720px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.susa-fac-comfort-heading h2 {
+  margin: 16px 0 20px;
+
+  color: var(--fac-text);
+
+  font-size: clamp(35px, 4vw, 52px);
+  line-height: 1.1;
+  font-weight: 600;
+
+  letter-spacing: -1px;
+}
+
+.susa-fac-comfort-heading h2 span {
+  color: var(--fac-gold-dark);
+}
+
+.susa-fac-comfort-heading p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.susa-fac-comfort-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.susa-fac-comfort-grid article {
+  position: relative;
+
+  min-height: 285px;
+
+  padding: 30px;
+
+  background: var(--fac-white);
+
+  border: 1px solid var(--fac-border);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.susa-fac-comfort-grid article:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--fac-shadow);
+}
+
+.susa-fac-comfort-grid article > span {
+  position: absolute;
+
+  top: 24px;
+  right: 24px;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.susa-fac-comfort-grid article > svg {
+  margin-top: 45px;
+  margin-bottom: 20px;
+
+  color: var(--fac-gold-dark);
+
+  font-size: 24px;
+}
+
+.susa-fac-comfort-grid h3 {
+  margin: 0 0 12px;
+
+  color: var(--fac-text);
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.susa-fac-comfort-grid p {
+  margin: 0;
+
+  color: var(--fac-muted);
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   WHY SUSA
+========================================================= */
+
+.susa-fac-why {
+  padding: 115px 0;
+
+  background: var(--fac-white);
+}
+
+.susa-fac-why-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 100px;
+}
+
+.susa-fac-why-heading h2 {
+  margin: 16px 0 0;
+
+  color: var(--fac-text);
+
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.1;
+  font-weight: 600;
+
+  letter-spacing: -1.5px;
+}
+
+.susa-fac-why-heading h2 span {
+  display: block;
+
+  color: var(--fac-gold-dark);
+}
+
+.susa-fac-why-content > p {
+  max-width: 680px;
+
+  margin: 0 0 35px;
+
+  color: var(--fac-muted);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.susa-fac-why-points {
+  display: grid;
+
+  border-top: 1px solid var(--fac-border);
+}
+
+.susa-fac-why-points > div {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+
+  gap: 15px;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--fac-border);
+}
+
+.susa-fac-why-points strong {
+  color: var(--fac-gold-dark);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.susa-fac-why-points span {
+  color: var(--fac-text);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.susa-fac-cta {
+  padding: 85px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--fac-navy),
+      var(--fac-navy-light)
+    );
+}
+
+.susa-fac-cta-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.susa-fac-cta-inner > div > span {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: var(--fac-gold-light);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+.susa-fac-cta h2 {
+  margin: 0;
+
+  color: var(--fac-white);
+
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 600;
+
+  line-height: 1.1;
+}
+
+.susa-fac-cta h2 em {
+  color: var(--fac-gold-light);
+
+  font-style: normal;
+}
+
+.susa-fac-cta-button {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px 24px;
+
+  background: var(--fac-gold);
+
+  color: var(--fac-navy);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.susa-fac-cta-button:hover {
+  background: var(--fac-gold-light);
+
+  transform: translateY(-2px);
+}
+
+.susa-fac-cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.susa-fac-cta-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .susa-fac-container {
+    width: min(100% - 40px, 1050px);
+  }
+
+  .susa-fac-overview-heading {
+    gap: 45px;
+  }
+
+  .susa-fac-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .susa-fac-comfort-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .susa-fac-showcase-grid {
+    gap: 50px;
+  }
+
+  .susa-fac-showcase-image {
+    height: 520px;
+  }
+
+  .susa-fac-why-grid {
+    gap: 55px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .susa-fac-container {
+    width: calc(100% - 40px);
+  }
+
+  .susa-fac-hero {
+    min-height: 610px;
+  }
+
+  .susa-fac-hero-content {
+    max-width: 650px;
+  }
+
+  .susa-fac-overview,
+  .susa-fac-occasions,
+  .susa-fac-showcase,
+  .susa-fac-rooms,
+  .susa-fac-additional,
+  .susa-fac-comfort,
+  .susa-fac-why {
+    padding: 85px 0;
+  }
+
+  .susa-fac-experience,
+  .susa-fac-spaces {
+    padding: 90px 0;
+  }
+
+  .susa-fac-overview-heading {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 40px;
+  }
+
+  .susa-fac-showcase-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .susa-fac-showcase-image {
+    height: 500px;
+  }
+
+  .susa-fac-room-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+  }
+
+  .susa-fac-additional-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+  }
+
+  .susa-fac-spaces-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .susa-fac-spaces-content {
+    max-width: 720px;
+  }
+
+  .susa-fac-spaces-image {
+    min-height: 440px;
+  }
+
+  .susa-fac-why-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .susa-fac-why-heading h2 {
+    max-width: 700px;
+  }
+
+  .susa-fac-cta {
+    padding: 70px 0;
+  }
+
+  .susa-fac-cta-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .susa-fac-container {
+    width: calc(100% - 30px);
+  }
+
+  .susa-fac-hero {
+    min-height: 580px;
+  }
+
+  .susa-fac-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 16, 29, 0.92),
+        rgba(3, 16, 29, 0.72)
+      );
+  }
+
+  .susa-fac-hero-content {
+    padding: 80px 0;
+  }
+
+  .susa-fac-eyebrow {
+    margin-bottom: 17px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .susa-fac-hero-content h1 {
+    font-size: 43px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .susa-fac-hero-content p {
+    margin: 22px 0 28px;
+
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .susa-fac-primary-button {
+    padding: 14px 19px;
+
+    font-size: 11px;
+  }
+
+
+  /* OVERVIEW */
+
+  .susa-fac-overview,
+  .susa-fac-occasions,
+  .susa-fac-showcase,
+  .susa-fac-rooms,
+  .susa-fac-additional,
+  .susa-fac-comfort,
+  .susa-fac-why {
+    padding: 70px 0;
+  }
+
+  .susa-fac-experience,
+  .susa-fac-spaces {
+    padding: 75px 0;
+  }
+
+  .susa-fac-overview-heading h2 {
+    font-size: 34px;
+  }
+
+  .susa-fac-overview-heading > p {
+    font-size: 14px;
+  }
+
+  .susa-fac-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-fac-overview-card {
+    min-height: 280px;
+
+    padding: 28px 24px;
+  }
+
+
+  /* EXPERIENCE */
+
+  .susa-fac-experience-content h2 {
+    font-size: 35px;
+  }
+
+  .susa-fac-experience-content > p {
+    font-size: 14px;
+  }
+
+  .susa-fac-experience-points {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  /* OCCASIONS */
+
+  .susa-fac-occasion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-fac-occasion-card {
+    min-height: 175px;
+
+    padding: 25px;
+  }
+
+  .susa-fac-occasion-card h3 {
+    font-size: 21px;
+  }
+
+
+  /* AUDITORIUM */
+
+  .susa-fac-showcase-grid {
+    gap: 35px;
+  }
+
+  .susa-fac-showcase-image {
+    height: 380px;
+  }
+
+  .susa-fac-showcase-content h2 {
+    font-size: 34px;
+  }
+
+  .susa-fac-showcase-content > p {
+    font-size: 14px;
+  }
+
+  .susa-fac-showcase-list {
+    margin: 28px 0;
+  }
+
+
+  /* ROOMS */
+
+  .susa-fac-section-heading {
+    margin-bottom: 38px;
+  }
+
+  .susa-fac-section-heading h2 {
+    font-size: 34px;
+  }
+
+  .susa-fac-section-heading p {
+    font-size: 14px;
+  }
+
+  .susa-fac-room-grid {
+    gap: 20px;
+  }
+
+  .susa-fac-room-image {
+    height: 300px;
+  }
+
+  .susa-fac-room-content {
+    padding: 27px 23px 30px;
+  }
+
+  .susa-fac-room-content h3 {
+    font-size: 24px;
+  }
+
+  .susa-fac-room-content p {
+    font-size: 13px;
+  }
+
+
+  /* ADDITIONAL */
+
+  .susa-fac-additional-grid {
+    gap: 20px;
+  }
+
+  .susa-fac-additional-image {
+    height: 250px;
+  }
+
+  .susa-fac-additional-content {
+    padding: 25px;
+  }
+
+  .susa-fac-additional-content h3 {
+    font-size: 22px;
+  }
+
+  .susa-fac-additional-content p {
+    font-size: 13px;
+  }
+
+
+  /* SPACES */
+
+  .susa-fac-spaces-content h2 {
+    font-size: 34px;
+  }
+
+  .susa-fac-spaces-content > p {
+    font-size: 14px;
+  }
+
+  .susa-fac-spaces-image {
+    min-height: 330px;
+  }
+
+  .susa-fac-spaces-image-label {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+
+    padding: 13px 14px;
+  }
+
+
+  /* COMFORT */
+
+  .susa-fac-comfort-heading h2 {
+    font-size: 34px;
+  }
+
+  .susa-fac-comfort-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-fac-comfort-grid article {
+    min-height: 245px;
+  }
+
+
+  /* WHY */
+
+  .susa-fac-why-heading h2 {
+    font-size: 35px;
+  }
+
+  .susa-fac-why-content > p {
+    font-size: 14px;
+  }
+
+  .susa-fac-why-points > div {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .susa-fac-why-points span {
+    font-size: 13px;
+  }
+
+
+  /* CTA */
+
+  .susa-fac-cta {
+    padding: 60px 0;
+  }
+
+  .susa-fac-cta h2 {
+    font-size: 32px;
+  }
+
+  .susa-fac-cta-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .susa-fac-container {
+    width: calc(100% - 24px);
+  }
+
+  .susa-fac-hero-content h1 {
+    font-size: 38px;
+  }
+
+  .susa-fac-overview-heading h2,
+  .susa-fac-experience-content h2,
+  .susa-fac-showcase-content h2,
+  .susa-fac-section-heading h2,
+  .susa-fac-spaces-content h2,
+  .susa-fac-comfort-heading h2,
+  .susa-fac-why-heading h2 {
+    font-size: 31px;
+  }
+
+  .susa-fac-room-image {
+    height: 250px;
+  }
+
+  .susa-fac-additional-image {
+    height: 220px;
+  }
+
+  .susa-fac-spaces-image {
+    min-height: 280px;
+  }
+
+  .susa-fac-room-content {
+    padding: 24px 20px 27px;
+  }
+
+  .susa-fac-additional-content {
+    padding: 22px;
+  }
+
+  .susa-fac-comfort-grid article {
+    padding: 25px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .susa-fac-page *,
+  .susa-fac-page *::before,
+  .susa-fac-page *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
