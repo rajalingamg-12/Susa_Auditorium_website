@@ -17,6 +17,8 @@ import Events from "./Pages/Events/Events";
 import Gallery from "./Pages/Gallery/Gallery";
 import Booking from "./Pages/Booking/Booking";
 
+import AIChat from "./Components/AIChat/AIChat";
+
 function App() {
   return (
     <BrowserRouter>
@@ -60,6 +62,9 @@ function App() {
       </main>
 
       <Footer />
+
+      <AIChat />
+
     </BrowserRouter>
   );
 }
