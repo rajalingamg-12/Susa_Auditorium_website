@@ -21,32 +21,48 @@ const Navbar = () => {
   return (
     <header className="navbar-header">
       <nav className="navbar-container">
-     {/* LOGO */}
-<Link to="/" className="navbar-logo" onClick={closeMenu}>
-  <img
-    src={auditoriumLogo}
-    alt="Auditorium Logo"
-    className="navbar-logo-image"
-  />
-</Link>
+
+        {/* LOGO */}
+        <Link
+          to="/"
+          className="navbar-logo"
+          onClick={closeMenu}
+        >
+          <img
+            src={auditoriumLogo}
+            alt="Auditorium Logo"
+            className="navbar-logo-image"
+          />
+        </Link>
 
         {/* MOBILE MENU BUTTON */}
         <button
           className="mobile-menu-button"
           onClick={() => setMobileMenu(!mobileMenu)}
-          aria-label={mobileMenu ? "Close navigation" : "Open navigation"}
+          aria-label={
+            mobileMenu
+              ? "Close navigation"
+              : "Open navigation"
+          }
           aria-expanded={mobileMenu}
         >
           {mobileMenu ? <FiX /> : <FiMenu />}
         </button>
 
         {/* NAVIGATION LINKS */}
-        <div className={`navbar-links ${mobileMenu ? "active" : ""}`}>
+        <div
+          className={`navbar-links ${
+            mobileMenu ? "active" : ""
+          }`}
+        >
 
+          {/* ABOUT */}
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              isActive ? "nav-link active-link" : "nav-link"
+              isActive
+                ? "nav-link active-link"
+                : "nav-link"
             }
             onClick={closeMenu}
           >
@@ -61,55 +77,81 @@ const Navbar = () => {
           >
             <button
               className="nav-link dropdown-trigger"
-              onClick={() => setFacilitiesOpen(!facilitiesOpen)}
+              onClick={() =>
+                setFacilitiesOpen(!facilitiesOpen)
+              }
               aria-expanded={facilitiesOpen}
             >
               Facilities <FiChevronDown />
             </button>
 
             <div className="dropdown-menu">
-              <NavLink to="/facilities" onClick={closeMenu}>
+              <NavLink
+                to="/facilities"
+                onClick={closeMenu}
+              >
                 All Facilities
               </NavLink>
 
-              <NavLink to="/facilities/auditorium" onClick={closeMenu}>
+              <NavLink
+                to="/facilities/auditorium"
+                onClick={closeMenu}
+              >
                 Main Auditorium
               </NavLink>
 
-              <NavLink to="/facilities/parking" onClick={closeMenu}>
+              <NavLink
+                to="/facilities/parking"
+                onClick={closeMenu}
+              >
                 Parking & Accessibility
               </NavLink>
 
-              <NavLink to="/facilities/amenities" onClick={closeMenu}>
+              <NavLink
+                to="/facilities/amenities"
+                onClick={closeMenu}
+              >
                 Amenities
               </NavLink>
             </div>
           </div>
 
+          {/* EVENTS */}
           <NavLink
             to="/events"
             className={({ isActive }) =>
-              isActive ? "nav-link active-link" : "nav-link"
+              isActive
+                ? "nav-link active-link"
+                : "nav-link"
             }
             onClick={closeMenu}
           >
             Events
           </NavLink>
 
+          {/* GALLERY */}
           <NavLink
             to="/gallery"
             className={({ isActive }) =>
-              isActive ? "nav-link active-link" : "nav-link"
+              isActive
+                ? "nav-link active-link"
+                : "nav-link"
             }
             onClick={closeMenu}
           >
             Gallery
           </NavLink>
 
-          <Link to="/booking" className="navbar-book-button" onClick={closeMenu}>
+          {/* BOOK NOW → BOOKING CALENDAR */}
+          <Link
+            to="/booking-schedule"
+            className="navbar-book-button"
+            onClick={closeMenu}
+          >
             <FiCalendar />
             <span>Book Now</span>
           </Link>
+
         </div>
       </nav>
     </header>

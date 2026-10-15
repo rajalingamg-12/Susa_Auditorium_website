@@ -1,28 +1,264 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
-  FiArrowRight,
   FiCalendar,
-  FiCheckCircle,
-  FiClock,
+  FiUser,
+  FiPhone,
   FiMail,
   FiMapPin,
-  FiPhone,
-  FiUsers,
-  FiStar,
-  FiSend,
+  FiArrowRight,
+  FiCheckCircle,
 } from "react-icons/fi";
 
 import "./Booking.css";
 
-import auditoriumImage from "../Booking/assets/fecilities.jpeg";
+/* =========================================================
+   SAMPLE UNAVAILABLE DATES
 
-const Booking = () => {
-  const [submitted, setSubmitted] = useState(false);
+   Keep this synchronized with BookingSchedule.jsx
+   until you connect a backend/database.
+========================================================= */
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
+const UNAVAILABLE_DATES = {
+  "2026-10-04": "booked",
+  "2026-10-10": "booked",
+  "2026-10-17": "pending",
+  "2026-10-24": "booked",
+  "2026-10-31": "pending",
+};
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+const getToday = () => {
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+/* =========================================================
+   DATE FORMAT
+========================================================= */
+
+const formatDisplayDate = (date) => {
+  if (!date) {
+    return "Select your event date";
+  }
+
+  return new Date(
+    `${date}T00:00:00`
+  ).toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+/* =========================================================
+   COMPONENT
+========================================================= */
+
+function Booking() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  /* =======================================================
+     URL DATE
+  ======================================================= */
+
+  const searchParams = new URLSearchParams(
+    location.search
+  );
+
+  const scheduleDate = searchParams.get("date");
+
+  /* =======================================================
+     FORM STATE
+  ======================================================= */
+
+  const [formData, setFormData] = useState({
+    eventDate: scheduleDate || "",
+    eventType: "",
+    customerName: "",
+    phone: "",
+    email: "",
+    guestCount: "",
+    address: "",
+    additionalDetails: "",
+  });
+
+  /* =======================================================
+     ERROR
+  ======================================================= */
+
+  const [dateError, setDateError] = useState("");
+
+  /* =======================================================
+     UPDATE DATE FROM URL
+  ======================================================= */
+
+  useEffect(() => {
+    if (!scheduleDate) return;
+
+    setFormData((previous) => ({
+      ...previous,
+      eventDate: scheduleDate,
+    }));
+
+    validateDate(scheduleDate);
+  }, [scheduleDate]);
+
+  /* =======================================================
+     DATE VALIDATION
+  ======================================================= */
+
+  const validateDate = (date) => {
+    if (!date) {
+      setDateError("Please select an event date.");
+      return false;
+    }
+
+    const today = getToday();
+
+    /* Past date */
+
+    if (date < today) {
+      setDateError(
+        "Past dates cannot be selected. Please choose a future date."
+      );
+
+      return false;
+    }
+
+    /* Booked / pending */
+
+    if (UNAVAILABLE_DATES[date]) {
+      const status = UNAVAILABLE_DATES[date];
+
+      if (status === "booked") {
+        setDateError(
+          "This date is already booked. Please select another date."
+        );
+      } else {
+        setDateError(
+          "This date is currently on hold. Please select another date."
+        );
+      }
+
+      return false;
+    }
+
+    setDateError("");
+
+    return true;
   };
+
+  /* =======================================================
+     INPUT CHANGE
+  ======================================================= */
+
+  const handleChange = (event) => {
+    const {
+      name,
+      value,
+    } = event.target;
+
+    /* Date */
+
+    if (name === "eventDate") {
+      validateDate(value);
+    }
+
+    /* Phone */
+
+    if (name === "phone") {
+      const phoneValue = value.replace(/\D/g, "");
+
+      setFormData((previous) => ({
+        ...previous,
+        phone: phoneValue,
+      }));
+
+      return;
+    }
+
+    /* Guest count */
+
+    if (name === "guestCount") {
+      const guestValue = value.replace(/\D/g, "");
+
+      setFormData((previous) => ({
+        ...previous,
+        guestCount: guestValue,
+      }));
+
+      return;
+    }
+
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  /* =======================================================
+     SUBMIT
+  ======================================================= */
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    /* Validate date */
+
+    if (!validateDate(formData.eventDate)) {
+      return;
+    }
+
+    /* Required fields */
+
+    if (
+      !formData.eventType ||
+      !formData.customerName.trim() ||
+      !formData.phone
+    ) {
+      alert(
+        "Please fill in all required fields."
+      );
+
+      return;
+    }
+
+    /* Phone validation */
+
+    if (!/^\d{10}$/.test(formData.phone)) {
+      alert(
+        "Please enter a valid 10-digit phone number."
+      );
+
+      return;
+    }
+
+    /* Continue to payment */
+
+    navigate("/payment", {
+      state: {
+        booking: {
+          ...formData,
+          customerName:
+            formData.customerName.trim(),
+        },
+      },
+    });
+  };
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
 
   return (
     <main className="susa-booking-page">
@@ -30,689 +266,464 @@ const Booking = () => {
       {/* =====================================================
           HERO
       ===================================================== */}
-      <section
-        className="susa-booking-hero"
-        style={{
-          backgroundImage: `url(${auditoriumImage})`,
-        }}
-      >
-        <div className="susa-booking-hero-overlay" />
+
+      <section className="susa-booking-hero">
 
         <div className="susa-booking-hero-content">
 
           <span className="susa-booking-eyebrow">
-            <FiStar />
             SUSA THIRUMAL AUDITORIUM
           </span>
 
-          <div className="susa-booking-hero-line" />
-
           <h1>
-            Your Event.
-            <span> Your Moment.</span>
+            Book Your <span>Event</span>
           </h1>
 
           <p>
-            Tell us what you're planning and let us help you
-            create an occasion worth remembering.
+            Choose your event date and share your
+            details to begin your booking enquiry.
           </p>
 
-          <div className="susa-booking-hero-meta">
-            <span>
-              <FiCalendar />
-              Plan Your Date
-            </span>
-
-            <span>
-              <FiUsers />
-              Tell Us Your Guests
-            </span>
-
-            <span>
-              <FiCheckCircle />
-              Start Planning
-            </span>
-          </div>
-
         </div>
 
-        <div className="susa-booking-hero-number">
-          <span>01</span>
-          BOOK YOUR MOMENT
-        </div>
       </section>
 
-
       {/* =====================================================
-          INTRO
+          MAIN SECTION
       ===================================================== */}
-      <section className="susa-booking-intro">
-        <div className="susa-booking-container">
 
-          <div className="susa-booking-intro-grid">
-
-            <div className="susa-booking-intro-title">
-
-              <span className="susa-booking-label">
-                LET'S GET STARTED
-              </span>
-
-              <h2>
-                Tell Us About
-                <span> Your Celebration</span>
-              </h2>
-
-            </div>
-
-            <div className="susa-booking-intro-copy">
-
-              <span className="susa-booking-intro-mark">
-                01
-              </span>
-
-              <p>
-                Every event begins with an idea. Share a few
-                details about yours and we'll help you understand
-                the venue, planning requirements, and next steps.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* =====================================================
-          MAIN BOOKING
-      ===================================================== */}
       <section className="susa-booking-section">
 
         <div className="susa-booking-container">
 
-          <div className="susa-booking-grid">
+          {/* =================================================
+              LEFT INFORMATION
+          ================================================= */}
 
-            {/* =================================================
-                FORM
-            ================================================= */}
-            <div className="susa-booking-form-card">
+          <div className="susa-booking-info">
 
-              <div className="susa-booking-form-top">
-
-                <div>
-                  <span className="susa-booking-form-number">
-                    01
-                  </span>
-
-                  <span className="susa-booking-label">
-                    EVENT ENQUIRY
-                  </span>
-                </div>
-
-                <FiSend />
-
-              </div>
-
-              <div className="susa-booking-form-heading">
-
-                <h3>
-                  Let's Plan Something
-                  <span> Special</span>
-                </h3>
-
-                <p>
-                  Complete the form below with your event
-                  details. It only takes a few minutes.
-                </p>
-
-              </div>
-
-
-              {submitted ? (
-
-                <div className="susa-booking-success">
-
-                  <div className="susa-booking-success-icon">
-                    <FiCheckCircle />
-                  </div>
-
-                  <span>ENQUIRY RECEIVED</span>
-
-                  <h3>
-                    Thank You!
-                  </h3>
-
-                  <p>
-                    Your event enquiry has been submitted
-                    successfully. Our team will get in touch
-                    with you regarding the next steps.
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={() => setSubmitted(false)}
-                    className="susa-booking-reset"
-                  >
-                    Submit Another Enquiry
-                    <FiArrowRight />
-                  </button>
-
-                </div>
-
-              ) : (
-
-                <form
-                  className="susa-booking-form"
-                  onSubmit={handleSubmit}
-                >
-
-                  {/* PERSONAL DETAILS */}
-                  <div className="susa-booking-form-section">
-
-                    <span className="susa-booking-form-section-title">
-                      YOUR DETAILS
-                    </span>
-
-                    <div className="susa-booking-form-row">
-
-                      <div className="susa-booking-field">
-                        <label htmlFor="name">
-                          Full Name
-                        </label>
-
-                        <input
-                          id="name"
-                          type="text"
-                          placeholder="Your full name"
-                          required
-                        />
-                      </div>
-
-                      <div className="susa-booking-field">
-                        <label htmlFor="phone">
-                          Phone Number
-                        </label>
-
-                        <input
-                          id="phone"
-                          type="tel"
-                          placeholder="Your phone number"
-                          required
-                        />
-                      </div>
-
-                    </div>
-
-                    <div className="susa-booking-field">
-
-                      <label htmlFor="email">
-                        Email Address
-                      </label>
-
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Your email address"
-                      />
-
-                    </div>
-
-                  </div>
-
-
-                  {/* EVENT DETAILS */}
-                  <div className="susa-booking-form-section">
-
-                    <span className="susa-booking-form-section-title">
-                      EVENT DETAILS
-                    </span>
-
-                    <div className="susa-booking-form-row">
-
-                      <div className="susa-booking-field">
-
-                        <label htmlFor="event">
-                          Event Type
-                        </label>
-
-                        <select
-                          id="event"
-                          required
-                          defaultValue=""
-                        >
-                          <option value="" disabled>
-                            Select event type
-                          </option>
-
-                          <option value="wedding">
-                            Wedding
-                          </option>
-
-                          <option value="family">
-                            Family Celebration
-                          </option>
-
-                          <option value="corporate">
-                            Corporate Event
-                          </option>
-
-                          <option value="other">
-                            Other
-                          </option>
-                        </select>
-
-                      </div>
-
-
-                      <div className="susa-booking-field">
-
-                        <label htmlFor="guests">
-                          Expected Guests
-                        </label>
-
-                        <select
-                          id="guests"
-                          defaultValue=""
-                        >
-                          <option value="" disabled>
-                            Select guest count
-                          </option>
-
-                          <option value="under-100">
-                            Under 100
-                          </option>
-
-                          <option value="100-250">
-                            100 – 250
-                          </option>
-
-                          <option value="250-500">
-                            250 – 500
-                          </option>
-
-                          <option value="500-plus">
-                            500+
-                          </option>
-                        </select>
-
-                      </div>
-
-                    </div>
-
-
-                    <div className="susa-booking-form-row">
-
-                      <div className="susa-booking-field">
-
-                        <label htmlFor="date">
-                          Preferred Date
-                        </label>
-
-                        <input
-                          id="date"
-                          type="date"
-                          required
-                        />
-
-                      </div>
-
-
-                      <div className="susa-booking-field">
-
-                        <label htmlFor="time">
-                          Preferred Time
-                        </label>
-
-                        <select
-                          id="time"
-                          defaultValue=""
-                        >
-                          <option value="" disabled>
-                            Select preferred time
-                          </option>
-
-                          <option value="morning">
-                            Morning
-                          </option>
-
-                          <option value="afternoon">
-                            Afternoon
-                          </option>
-
-                          <option value="evening">
-                            Evening
-                          </option>
-                        </select>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* MESSAGE */}
-                  <div className="susa-booking-form-section">
-
-                    <span className="susa-booking-form-section-title">
-                      YOUR VISION
-                    </span>
-
-                    <div className="susa-booking-field">
-
-                      <label htmlFor="message">
-                        Additional Details
-                      </label>
-
-                      <textarea
-                        id="message"
-                        rows="5"
-                        placeholder="Tell us anything important about your event..."
-                      />
-
-                    </div>
-
-                  </div>
-
-
-                  <button
-                    type="submit"
-                    className="susa-booking-submit"
-                  >
-                    <span>
-                      Send Event Enquiry
-                    </span>
-
-                    <FiArrowRight />
-
-                  </button>
-
-                  <p className="susa-booking-form-note">
-                    Your enquiry helps us understand your
-                    requirements before we discuss the details.
-                  </p>
-
-                </form>
-
-              )}
-
-            </div>
-
-
-            {/* =================================================
-                SIDE PANEL
-            ================================================= */}
-            <aside className="susa-booking-info">
-
-              <div className="susa-booking-info-card">
-
-                <div className="susa-booking-info-header">
-
-                  <span className="susa-booking-label">
-                    THE SUSA JOURNEY
-                  </span>
-
-                  <span className="susa-booking-info-badge">
-                    01 — 04
-                  </span>
-
-                </div>
-
-                <h3>
-                  From Your
-                  <span> Idea</span>
-                  <br />
-                  To Your
-                  <span> Event</span>
-                </h3>
-
-                <p>
-                  A simple journey designed to make your event
-                  planning experience clear and comfortable.
-                </p>
-
-
-                <div className="susa-booking-info-list">
-
-                  <div className="susa-booking-info-item">
-
-                    <span className="susa-booking-info-number">
-                      01
-                    </span>
-
-                    <span className="susa-booking-info-icon">
-                      <FiCalendar />
-                    </span>
-
-                    <div>
-                      <strong>Choose Your Date</strong>
-                      <small>
-                        Tell us when your event is planned.
-                      </small>
-                    </div>
-
-                  </div>
-
-
-                  <div className="susa-booking-info-item">
-
-                    <span className="susa-booking-info-number">
-                      02
-                    </span>
-
-                    <span className="susa-booking-info-icon">
-                      <FiUsers />
-                    </span>
-
-                    <div>
-                      <strong>Share Your Requirements</strong>
-                      <small>
-                        Tell us about your guests and occasion.
-                      </small>
-                    </div>
-
-                  </div>
-
-
-                  <div className="susa-booking-info-item">
-
-                    <span className="susa-booking-info-number">
-                      03
-                    </span>
-
-                    <span className="susa-booking-info-icon">
-                      <FiClock />
-                    </span>
-
-                    <div>
-                      <strong>Discuss The Details</strong>
-                      <small>
-                        Understand the venue and planning needs.
-                      </small>
-                    </div>
-
-                  </div>
-
-
-                  <div className="susa-booking-info-item">
-
-                    <span className="susa-booking-info-number">
-                      04
-                    </span>
-
-                    <span className="susa-booking-info-icon">
-                      <FiCheckCircle />
-                    </span>
-
-                    <div>
-                      <strong>Make It Happen</strong>
-                      <small>
-                        Bring your celebration to SUSA.
-                      </small>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* CONTACT */}
-              <div className="susa-booking-contact-card">
-
-                <div className="susa-booking-contact-icon">
-                  <FiPhone />
-                </div>
-
-                <span className="susa-booking-label">
-                  NEED HELP?
-                </span>
-
-                <h3>
-                  Let's Talk About
-                  <span> Your Event</span>
-                </h3>
-
-                <p>
-                  Have a question before submitting your enquiry?
-                  Contact the auditorium team directly.
-                </p>
-
-                <div className="susa-booking-contact-details">
-
-                  <a href="tel:+919442608612">
-                    <FiPhone />
-                    <span>
-                      <small>PHONE</small>
-                      Call Us
-                    </span>
-                  </a>
-
-                  <a href="mailto:info@susaauditorium.com">
-                    <FiMail />
-                    <span>
-                      <small>EMAIL</small>
-                      Email Us
-                    </span>
-                  </a>
-
-                  <div>
-                    <FiMapPin />
-                    <span>
-                      <small>VENUE</small>
-                      SUSA Thirumal Auditorium
-                    </span>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </aside>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          PROCESS
-      ===================================================== */}
-      <section className="susa-booking-process">
-
-        <div className="susa-booking-container">
-
-          <div className="susa-booking-process-heading">
-
-            <span className="susa-booking-label">
-              HOW IT WORKS
+            <span className="susa-booking-section-label">
+              EVENT BOOKING
             </span>
 
             <h2>
-              Four Steps.
-              <span> One Memorable Event.</span>
+              Reserve Your
+              <br />
+              <span>Special Day</span>
             </h2>
 
             <p>
-              A simple process from your first enquiry to
-              your special day.
+              Fill in the details below to confirm
+              your event requirements and continue
+              to the payment options.
             </p>
 
-          </div>
+            {/* Selected Date */}
 
+            <div className="susa-selected-date-card">
 
-          <div className="susa-booking-process-grid">
-
-            <div className="susa-booking-process-item">
-
-              <span>01</span>
-
-              <div className="susa-booking-process-icon">
-                <FiSend />
-              </div>
-
-              <h3>Enquire</h3>
-
-              <p>
-                Share your event requirements with us.
-              </p>
-
-            </div>
-
-
-            <div className="susa-booking-process-item">
-
-              <span>02</span>
-
-              <div className="susa-booking-process-icon">
-                <FiUsers />
-              </div>
-
-              <h3>Discuss</h3>
-
-              <p>
-                Talk through your event and venue needs.
-              </p>
-
-            </div>
-
-
-            <div className="susa-booking-process-item">
-
-              <span>03</span>
-
-              <div className="susa-booking-process-icon">
+              <div className="susa-selected-date-icon">
                 <FiCalendar />
               </div>
 
-              <h3>Plan</h3>
+              <div>
 
-              <p>
-                Finalize the details for your occasion.
-              </p>
+                <span>
+                  Selected Event Date
+                </span>
 
-            </div>
+                <strong>
+                  {formatDisplayDate(
+                    formData.eventDate
+                  )}
+                </strong>
 
-
-            <div className="susa-booking-process-item">
-
-              <span>04</span>
-
-              <div className="susa-booking-process-icon">
-            <FiStar />
               </div>
 
-              <h3>Celebrate</h3>
+            </div>
+
+            {/* Date Error */}
+
+            {dateError && (
+              <div className="susa-booking-date-error">
+                <span>!</span>
+                {dateError}
+              </div>
+            )}
+
+            {/* Steps */}
+
+            <div className="susa-booking-steps">
+
+              <div className="susa-booking-step">
+
+                <div className="susa-booking-step-number">
+                  01
+                </div>
+
+                <div>
+
+                  <strong>
+                    Choose Date
+                  </strong>
+
+                  <p>
+                    Select an available event date.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div className="susa-booking-step">
+
+                <div className="susa-booking-step-number">
+                  02
+                </div>
+
+                <div>
+
+                  <strong>
+                    Enter Details
+                  </strong>
+
+                  <p>
+                    Tell us about your event.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div className="susa-booking-step">
+
+                <div className="susa-booking-step-number">
+                  03
+                </div>
+
+                <div>
+
+                  <strong>
+                    Payment
+                  </strong>
+
+                  <p>
+                    Pay online or choose offline payment.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* =================================================
+              FORM
+          ================================================= */}
+
+          <div className="susa-booking-form-card">
+
+            <div className="susa-booking-form-heading">
+
+              <span>
+                BOOKING DETAILS
+              </span>
+
+              <h3>
+                Tell Us About Your Event
+              </h3>
 
               <p>
-                Bring your special event to life at SUSA.
+                Fields marked with <b>*</b> are required.
               </p>
 
             </div>
+
+            <form onSubmit={handleSubmit}>
+
+              {/* =================================================
+                  EVENT DATE
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="eventDate">
+                  Event Date <b>*</b>
+                </label>
+
+                <div className="susa-booking-input-icon">
+
+                  <FiCalendar />
+
+                  <input
+                    id="eventDate"
+                    type="date"
+                    name="eventDate"
+                    value={formData.eventDate}
+                    min={getToday()}
+                    onChange={handleChange}
+                    required
+                  />
+
+                </div>
+
+                {scheduleDate && !dateError && (
+                  <small className="susa-date-selected-note">
+                    ✓ Date selected from booking schedule
+                  </small>
+                )}
+
+              </div>
+
+              {/* =================================================
+                  EVENT TYPE
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="eventType">
+                  Event Type <b>*</b>
+                </label>
+
+                <select
+                  id="eventType"
+                  name="eventType"
+                  value={formData.eventType}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">
+                    Select Event Type
+                  </option>
+
+                  <option value="Wedding">
+                    Wedding
+                  </option>
+
+                  <option value="Wedding Reception">
+                    Wedding Reception
+                  </option>
+
+                  <option value="Engagement">
+                    Engagement
+                  </option>
+
+                  <option value="Birthday">
+                    Birthday / Family Celebration
+                  </option>
+
+                  <option value="Corporate Event">
+                    Corporate Event
+                  </option>
+
+                  <option value="Conference">
+                    Conference / Meeting
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+              {/* =================================================
+                  NAME
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="customerName">
+                  Full Name <b>*</b>
+                </label>
+
+                <div className="susa-booking-input-icon">
+
+                  <FiUser />
+
+                  <input
+                    id="customerName"
+                    type="text"
+                    name="customerName"
+                    value={formData.customerName}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    autoComplete="name"
+                    required
+                  />
+
+                </div>
+
+              </div>
+
+              {/* =================================================
+                  PHONE + EMAIL
+              ================================================= */}
+
+              <div className="susa-booking-form-row">
+
+                <div className="susa-booking-form-group">
+
+                  <label htmlFor="phone">
+                    Phone Number <b>*</b>
+                  </label>
+
+                  <div className="susa-booking-input-icon">
+
+                    <FiPhone />
+
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="10-digit number"
+                      maxLength="10"
+                      inputMode="numeric"
+                      autoComplete="tel"
+                      required
+                    />
+
+                  </div>
+
+                </div>
+
+                <div className="susa-booking-form-group">
+
+                  <label htmlFor="email">
+                    Email Address
+                  </label>
+
+                  <div className="susa-booking-input-icon">
+
+                    <FiMail />
+
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter email address"
+                      autoComplete="email"
+                    />
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* =================================================
+                  GUEST COUNT
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="guestCount">
+                  Expected Guests
+                </label>
+
+                <input
+                  id="guestCount"
+                  type="number"
+                  name="guestCount"
+                  value={formData.guestCount}
+                  onChange={handleChange}
+                  placeholder="Approximate number of guests"
+                  min="1"
+                  inputMode="numeric"
+                />
+
+              </div>
+
+              {/* =================================================
+                  ADDRESS
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="address">
+                  Address
+                </label>
+
+                <div className="susa-booking-input-icon susa-booking-textarea-icon">
+
+                  <FiMapPin />
+
+                  <textarea
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    placeholder="Enter your address"
+                    rows="3"
+                    autoComplete="street-address"
+                  />
+
+                </div>
+
+              </div>
+
+              {/* =================================================
+                  ADDITIONAL DETAILS
+              ================================================= */}
+
+              <div className="susa-booking-form-group">
+
+                <label htmlFor="additionalDetails">
+                  Additional Requirements
+                </label>
+
+                <textarea
+                  id="additionalDetails"
+                  name="additionalDetails"
+                  value={formData.additionalDetails}
+                  onChange={handleChange}
+                  placeholder="Tell us anything else about your event..."
+                  rows="4"
+                />
+
+              </div>
+
+              {/* =================================================
+                  CONFIRMATION
+              ================================================= */}
+
+              <div className="susa-booking-confirmation">
+
+                <FiCheckCircle />
+
+                <p>
+                  Your selected date and booking details
+                  will be carried to the payment page.
+                </p>
+
+              </div>
+
+              {/* =================================================
+                  SUBMIT
+              ================================================= */}
+
+              <button
+                type="submit"
+                className="susa-booking-submit"
+                disabled={Boolean(dateError)}
+              >
+
+                <span>
+                  Continue to Payment
+                </span>
+
+                <FiArrowRight />
+
+              </button>
+
+            </form>
 
           </div>
 
@@ -722,6 +733,6 @@ const Booking = () => {
 
     </main>
   );
-};
+}
 
 export default Booking;

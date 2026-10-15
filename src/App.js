@@ -12,10 +12,12 @@ import Auditorium from "./Pages/Facilities/Auditorium/Auditorium";
 import Parking from "./Pages/Facilities/Parking/Parking";
 import Amenities from "./Pages/Facilities/Amenities/Amenities";
 
-// These must already exist in your project
 import Events from "./Pages/Events/Events";
 import Gallery from "./Pages/Gallery/Gallery";
 import Booking from "./Pages/Booking/Booking";
+
+import BookingSchedule from "./Pages/BookingSchedule/BookingSchedule";
+import Payment from "./Pages/Payment/Payment";
 
 import AIChat from "./Components/AIChat/AIChat";
 
@@ -27,14 +29,31 @@ function App() {
       <main>
         <Routes>
 
-          {/* HOME */}
-          <Route path="/" element={<Home />} />
+          {/* =================================================
+              HOME
+          ================================================= */}
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-          {/* ABOUT */}
-          <Route path="/about" element={<About />} />
 
-          {/* FACILITIES */}
-          <Route path="/facilities" element={<Facilities />} />
+          {/* =================================================
+              ABOUT
+          ================================================= */}
+          <Route
+            path="/about"
+            element={<About />}
+          />
+
+
+          {/* =================================================
+              FACILITIES
+          ================================================= */}
+          <Route
+            path="/facilities"
+            element={<Facilities />}
+          />
 
           <Route
             path="/facilities/auditorium"
@@ -51,18 +70,59 @@ function App() {
             element={<Amenities />}
           />
 
-          {/* OTHER PAGES */}
-          <Route path="/events" element={<Events />} />
 
-          <Route path="/gallery" element={<Gallery />} />
+          {/* =================================================
+              EVENTS
+          ================================================= */}
+          <Route
+            path="/events"
+            element={<Events />}
+          />
 
-          <Route path="/booking" element={<Booking />} />
+
+          {/* =================================================
+              GALLERY
+          ================================================= */}
+          <Route
+            path="/gallery"
+            element={<Gallery />}
+          />
+
+
+          {/* =================================================
+              BOOKING
+          ================================================= */}
+          <Route
+            path="/booking"
+            element={<Booking />}
+          />
+
+
+          {/* =================================================
+              BOOKING SCHEDULE / CALENDAR
+          ================================================= */}
+          <Route
+            path="/booking-schedule"
+            element={<BookingSchedule />}
+          />
+
+
+          {/* =================================================
+              PAYMENT
+          ================================================= */}
+          <Route
+            path="/payment"
+            element={<Payment />}
+          />
 
         </Routes>
       </main>
 
       <Footer />
 
+      {/* =====================================================
+          GLOBAL AI CHAT
+      ===================================================== */}
       <AIChat />
 
     </BrowserRouter>

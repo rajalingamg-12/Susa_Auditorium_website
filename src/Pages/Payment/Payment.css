@@ -1,0 +1,1604 @@
+/* =========================================================
+   SUSA THIRUMAL AUDITORIUM
+   PAYMENT PAGE
+   Premium Navy + Champagne Gold
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+.susa-payment-page,
+.susa-payment-page * {
+  box-sizing: border-box;
+}
+
+.susa-payment-page {
+  --payment-navy: #03101d;
+  --payment-navy-light: #0b1d2d;
+  --payment-navy-soft: #102536;
+
+  --payment-gold: #bf9d52;
+  --payment-gold-light: #f0d18a;
+  --payment-gold-dark: #987735;
+
+  --payment-white: #ffffff;
+  --payment-soft: #f7f5ef;
+  --payment-soft-dark: #ebe6da;
+
+  --payment-text: #18212a;
+  --payment-muted: #69717a;
+
+  --payment-border: rgba(3, 16, 29, 0.12);
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: var(--payment-white);
+  color: var(--payment-text);
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.susa-payment-hero {
+  position: relative;
+
+  min-height: 470px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(191, 157, 82, 0.18),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      var(--payment-navy),
+      var(--payment-navy-light)
+    );
+}
+
+.susa-payment-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(3, 16, 29, 0.95),
+      rgba(3, 16, 29, 0.68),
+      rgba(3, 16, 29, 0.45)
+    );
+}
+
+.susa-payment-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -150px;
+  bottom: -210px;
+
+  border: 1px solid rgba(240, 209, 138, 0.22);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.susa-payment-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(850px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  color: var(--payment-white);
+
+  animation: susaPaymentHeroUp 0.8s ease both;
+}
+
+.susa-payment-hero-content > span {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: var(--payment-gold-light);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.susa-payment-hero-content h1 {
+  margin: 0;
+
+  font-size: clamp(45px, 6vw, 76px);
+  line-height: 1.02;
+
+  font-weight: 500;
+
+  letter-spacing: -2.5px;
+}
+
+.susa-payment-hero-content h1 strong {
+  display: block;
+
+  color: var(--payment-gold-light);
+
+  font-weight: 600;
+}
+
+.susa-payment-hero-content p {
+  max-width: 610px;
+
+  margin: 25px auto 0;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.susa-payment-section {
+  padding: 100px 0 120px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--payment-white),
+      var(--payment-soft)
+    );
+}
+
+.susa-payment-container {
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(400px, 1fr);
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   LEFT DETAILS
+========================================================= */
+
+.susa-payment-details {
+  padding-top: 10px;
+}
+
+.susa-payment-label {
+  display: inline-block;
+
+  margin-bottom: 16px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2.6px;
+}
+
+.susa-payment-details h2 {
+  margin: 0;
+
+  font-size: clamp(38px, 4vw, 55px);
+
+  line-height: 1.08;
+
+  font-weight: 600;
+
+  letter-spacing: -1.8px;
+}
+
+.susa-payment-details h2 strong {
+  display: block;
+
+  color: var(--payment-gold-dark);
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.susa-payment-summary {
+  margin-top: 45px;
+
+  border-top: 1px solid var(--payment-border);
+}
+
+.susa-summary-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid var(--payment-border);
+}
+
+.susa-summary-icon {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(191, 157, 82, 0.32);
+
+  background: rgba(191, 157, 82, 0.08);
+
+  color: var(--payment-gold-dark);
+
+  font-size: 18px;
+}
+
+.susa-summary-item > div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.susa-summary-item span {
+  color: var(--payment-muted);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.susa-summary-item strong {
+  color: var(--payment-text);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.susa-payment-contact {
+  margin-top: 38px;
+
+  padding: 25px;
+
+  border-left: 2px solid var(--payment-gold);
+
+  background: var(--payment-white);
+
+  box-shadow:
+    0 12px 35px rgba(3, 16, 29, 0.05);
+}
+
+.susa-payment-contact > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.susa-payment-contact > div {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.susa-payment-contact svg {
+  flex: 0 0 auto;
+
+  margin-top: 2px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 16px;
+}
+
+.susa-payment-contact strong {
+  color: var(--payment-text);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.susa-payment-back {
+  margin-top: 35px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--payment-muted);
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.susa-payment-back svg {
+  font-size: 15px;
+}
+
+.susa-payment-back:hover {
+  color: var(--payment-gold-dark);
+
+  transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   PAYMENT CARD
+========================================================= */
+
+.susa-payment-card {
+  padding: 42px;
+
+  border: 1px solid var(--payment-border);
+
+  background: var(--payment-white);
+
+  box-shadow:
+    0 25px 65px rgba(3, 16, 29, 0.08);
+}
+
+.susa-payment-card-heading {
+  margin-bottom: 30px;
+}
+
+.susa-payment-card-heading > span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.susa-payment-card-heading h3 {
+  margin: 0;
+
+  color: var(--payment-text);
+
+  font-size: 28px;
+
+  line-height: 1.2;
+
+  font-weight: 600;
+}
+
+.susa-payment-card-heading p {
+  margin: 10px 0 0;
+
+  color: var(--payment-muted);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PAYMENT METHOD
+========================================================= */
+
+.susa-payment-method {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 52px minmax(0, 1fr) 22px;
+
+  gap: 16px;
+
+  align-items: center;
+
+  margin-top: 14px;
+
+  padding: 20px;
+
+  border: 1px solid var(--payment-border);
+
+  background: var(--payment-white);
+
+  color: var(--payment-text);
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.susa-payment-method:hover {
+  border-color: rgba(191, 157, 82, 0.55);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(3, 16, 29, 0.06);
+}
+
+.susa-payment-method.active {
+  border-color: var(--payment-gold);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(191, 157, 82, 0.08),
+      rgba(240, 209, 138, 0.03)
+    );
+
+  box-shadow:
+    0 10px 30px rgba(191, 157, 82, 0.08);
+}
+
+
+/* =========================================================
+   PAYMENT METHOD ICON
+========================================================= */
+
+.susa-payment-method-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--payment-navy);
+
+  color: var(--payment-gold-light);
+
+  font-size: 20px;
+}
+
+.susa-payment-method.active
+.susa-payment-method-icon {
+  background: var(--payment-gold);
+
+  color: var(--payment-navy);
+}
+
+
+/* =========================================================
+   PAYMENT METHOD CONTENT
+========================================================= */
+
+.susa-payment-method-content {
+  min-width: 0;
+}
+
+.susa-payment-method-content strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--payment-text);
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+.susa-payment-method-content p {
+  margin: 0 0 6px;
+
+  color: var(--payment-muted);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.susa-payment-method-content small {
+  color: var(--payment-gold-dark);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* =========================================================
+   RADIO
+========================================================= */
+
+.susa-payment-radio {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(3, 16, 29, 0.28);
+
+  border-radius: 50%;
+}
+
+.susa-payment-method.active
+.susa-payment-radio {
+  border-color: var(--payment-gold);
+}
+
+.susa-payment-radio span {
+  width: 9px;
+  height: 9px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: var(--payment-gold);
+}
+
+
+/* =========================================================
+   ONLINE PAYMENT PANEL
+========================================================= */
+
+.susa-online-payment-panel {
+  margin-top: 10px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(191, 157, 82, 0.24);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 157, 82, 0.045),
+      rgba(255, 255, 255, 0.98)
+    );
+
+  animation: susaPaymentPanelDown 0.3s ease both;
+}
+
+.susa-online-payment-title {
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid var(--payment-border);
+}
+
+.susa-online-payment-title span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+}
+
+.susa-online-payment-title strong {
+  color: var(--payment-text);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ONLINE PAYMENT OPTION
+========================================================= */
+
+.susa-online-option {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 10px;
+
+  padding: 14px;
+
+  border: 1px solid var(--payment-border);
+
+  background: var(--payment-white);
+
+  color: var(--payment-text);
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.susa-online-option:hover {
+  border-color: rgba(191, 157, 82, 0.5);
+}
+
+.susa-online-option.active {
+  border-color: var(--payment-gold);
+
+  background: rgba(191, 157, 82, 0.07);
+}
+
+.susa-online-option-radio {
+  width: 17px;
+  height: 17px;
+
+  flex: 0 0 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(3, 16, 29, 0.28);
+
+  border-radius: 50%;
+}
+
+.susa-online-option.active
+.susa-online-option-radio {
+  border-color: var(--payment-gold);
+}
+
+.susa-online-option-radio span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--payment-gold);
+}
+
+.susa-online-option div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.susa-online-option strong {
+  color: var(--payment-text);
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.susa-online-option small {
+  color: var(--payment-muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAYMENT INPUT FIELDS
+========================================================= */
+
+.susa-payment-fields {
+  margin-top: 10px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(3, 16, 29, 0.08);
+
+  background: var(--payment-soft);
+
+  animation: susaPaymentFieldsDown 0.25s ease both;
+}
+
+.susa-payment-fields label {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 13px;
+
+  color: var(--payment-text);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.susa-payment-fields label:first-child {
+  margin-top: 0;
+}
+
+.susa-payment-fields input,
+.susa-payment-fields select {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(3, 16, 29, 0.13);
+
+  outline: none;
+
+  background: var(--payment-white);
+
+  color: var(--payment-text);
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.susa-payment-fields input::placeholder {
+  color: #a0a5a9;
+}
+
+.susa-payment-fields input:focus,
+.susa-payment-fields select:focus {
+  border-color: var(--payment-gold);
+
+  box-shadow:
+    0 0 0 3px rgba(191, 157, 82, 0.1);
+}
+
+.susa-payment-fields select {
+  appearance: none;
+
+  cursor: pointer;
+}
+
+.susa-payment-field-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.susa-payment-security {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 25px;
+
+  padding: 16px;
+
+  background: var(--payment-soft);
+
+  border: 1px solid rgba(3, 16, 29, 0.06);
+}
+
+.susa-payment-security > svg {
+  flex: 0 0 auto;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 20px;
+}
+
+.susa-payment-security strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--payment-text);
+
+  font-size: 12px;
+}
+
+.susa-payment-security p {
+  margin: 0;
+
+  color: var(--payment-muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.susa-payment-continue {
+  width: 100%;
+
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 20px;
+
+  padding: 0 22px;
+
+  border: 1px solid var(--payment-gold);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--payment-gold),
+      var(--payment-gold-light)
+    );
+
+  color: var(--payment-navy);
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.susa-payment-continue svg {
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.susa-payment-continue:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(191, 157, 82, 0.25);
+}
+
+.susa-payment-continue:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   PAYMENT NOTE
+========================================================= */
+
+.susa-payment-note {
+  margin: 15px 0 0;
+
+  color: var(--payment-muted);
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.susa-payment-empty {
+  width: min(650px, calc(100% - 48px));
+
+  min-height: 75vh;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.susa-payment-empty-icon {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+
+  background: var(--payment-navy);
+
+  color: var(--payment-gold-light);
+
+  font-size: 28px;
+}
+
+.susa-payment-empty > span {
+  margin-bottom: 12px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+.susa-payment-empty h1 {
+  margin: 0;
+
+  color: var(--payment-text);
+
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  letter-spacing: -1.5px;
+}
+
+.susa-payment-empty h1 strong {
+  display: block;
+
+  color: var(--payment-gold-dark);
+}
+
+.susa-payment-empty p {
+  max-width: 500px;
+
+  margin: 20px auto 30px;
+
+  color: var(--payment-muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.susa-payment-primary {
+  min-height: 54px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  padding: 0 24px;
+
+  border: 1px solid var(--payment-gold);
+
+  background: var(--payment-gold);
+
+  color: var(--payment-navy);
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.susa-payment-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(191, 157, 82, 0.22);
+}
+
+
+/* =========================================================
+   SUCCESS PAGE
+========================================================= */
+
+.susa-payment-success {
+  width: min(760px, calc(100% - 48px));
+
+  min-height: 85vh;
+
+  margin: 0 auto;
+
+  padding: 100px 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.susa-payment-success-icon {
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(191, 157, 82, 0.45);
+
+  background: rgba(191, 157, 82, 0.08);
+
+  color: var(--payment-gold-dark);
+
+  font-size: 38px;
+
+  border-radius: 50%;
+}
+
+.susa-payment-success-label {
+  margin-bottom: 12px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2.5px;
+}
+
+.susa-payment-success h1 {
+  margin: 0;
+
+  color: var(--payment-text);
+
+  font-size: clamp(40px, 5vw, 62px);
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  letter-spacing: -1.8px;
+}
+
+.susa-payment-success h1 strong {
+  display: block;
+
+  color: var(--payment-gold-dark);
+}
+
+.susa-payment-success > p {
+  max-width: 500px;
+
+  margin: 20px auto 35px;
+
+  color: var(--payment-muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SUCCESS CARD
+========================================================= */
+
+.susa-payment-success-card {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border: 1px solid var(--payment-border);
+
+  background: var(--payment-white);
+
+  box-shadow:
+    0 20px 50px rgba(3, 16, 29, 0.07);
+}
+
+.susa-payment-success-card > div {
+  min-width: 0;
+
+  padding: 25px 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  border-right: 1px solid var(--payment-border);
+}
+
+.susa-payment-success-card > div:last-child {
+  border-right: 0;
+}
+
+.susa-payment-success-card svg {
+  margin-bottom: 4px;
+
+  color: var(--payment-gold-dark);
+
+  font-size: 20px;
+}
+
+.susa-payment-success-card span {
+  color: var(--payment-muted);
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.susa-payment-success-card strong {
+  color: var(--payment-text);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   SUCCESS ACTIONS
+========================================================= */
+
+.susa-payment-success-actions {
+  margin-top: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.susa-payment-secondary {
+  min-height: 54px;
+
+  padding: 0 22px;
+
+  border: 1px solid var(--payment-border);
+
+  background: var(--payment-white);
+
+  color: var(--payment-text);
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.susa-payment-secondary:hover {
+  border-color: var(--payment-gold);
+
+  color: var(--payment-gold-dark);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes susaPaymentHeroUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes susaPaymentPanelDown {
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes susaPaymentFieldsDown {
+  from {
+    opacity: 0;
+
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .susa-payment-container {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    max-width: 760px;
+  }
+
+  .susa-payment-details {
+    padding-top: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .susa-payment-hero {
+    min-height: 430px;
+  }
+
+  .susa-payment-hero-content {
+    width: min(100% - 32px, 600px);
+  }
+
+  .susa-payment-hero-content h1 {
+    font-size: clamp(42px, 12vw, 60px);
+
+    letter-spacing: -1.8px;
+  }
+
+  .susa-payment-section {
+    padding: 70px 0 80px;
+  }
+
+  .susa-payment-container {
+    width: calc(100% - 32px);
+
+    gap: 45px;
+  }
+
+  .susa-payment-details h2 {
+    font-size: 40px;
+  }
+
+  .susa-payment-card {
+    padding: 28px 20px;
+  }
+
+  .susa-payment-method {
+    grid-template-columns: 44px minmax(0, 1fr) 20px;
+
+    gap: 12px;
+
+    padding: 16px;
+  }
+
+  .susa-payment-method-icon {
+    width: 44px;
+    height: 44px;
+
+    font-size: 18px;
+  }
+
+  .susa-payment-method-content strong {
+    font-size: 13px;
+  }
+
+  .susa-payment-method-content p {
+    font-size: 11px;
+  }
+
+  .susa-online-payment-panel {
+    padding: 15px;
+  }
+
+  .susa-payment-fields {
+    padding: 14px;
+  }
+
+  .susa-payment-field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .susa-payment-success {
+    width: calc(100% - 32px);
+
+    padding: 80px 0;
+  }
+
+  .susa-payment-success-card {
+    grid-template-columns: 1fr;
+  }
+
+  .susa-payment-success-card > div {
+    border-right: 0;
+
+    border-bottom: 1px solid var(--payment-border);
+  }
+
+  .susa-payment-success-card > div:last-child {
+    border-bottom: 0;
+  }
+
+  .susa-payment-success-actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .susa-payment-success-actions button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .susa-payment-hero {
+    min-height: 390px;
+  }
+
+  .susa-payment-hero-content > span {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .susa-payment-hero-content h1 {
+    font-size: 39px;
+  }
+
+  .susa-payment-hero-content p {
+    font-size: 13px;
+  }
+
+  .susa-payment-section {
+    padding-top: 55px;
+  }
+
+  .susa-payment-container {
+    width: calc(100% - 24px);
+  }
+
+  .susa-payment-card {
+    padding: 24px 16px;
+  }
+
+  .susa-payment-contact {
+    padding: 18px;
+  }
+
+  .susa-payment-method {
+    grid-template-columns: 40px minmax(0, 1fr) 18px;
+
+    padding: 13px;
+  }
+
+  .susa-payment-method-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .susa-payment-method-content small {
+    font-size: 8px;
+  }
+
+  .susa-online-payment-panel {
+    padding: 12px;
+  }
+
+  .susa-online-option {
+    padding: 12px;
+  }
+
+  .susa-payment-fields {
+    padding: 12px;
+  }
+
+  .susa-payment-fields input,
+  .susa-payment-fields select {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .susa-payment-continue {
+    padding: 0 17px;
+
+    font-size: 10px;
+  }
+
+}
