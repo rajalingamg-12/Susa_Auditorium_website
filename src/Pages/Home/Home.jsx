@@ -266,7 +266,7 @@ const Home = () => {
                         <div className="hero-actions">
 
                             <Link
-                                to="/booking"
+                                to="/booking-schedule"
                                 className="hero-primary-button"
                             >
                                 <FiCalendar />
@@ -1204,7 +1204,7 @@ const Home = () => {
                         <div className="visit-actions">
 
                             <Link
-                                to="/booking"
+                                to="/booking-schedule"
                                 className="hero-primary-button"
                             >
                                 Check Booking
@@ -1303,7 +1303,7 @@ const Home = () => {
 
 
                     <Link
-                        to="/booking"
+                        to="/booking-schedule"
                         className="cta-book-button"
                     >
                         Book Your Event

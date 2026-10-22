@@ -111,7 +111,7 @@ const About = () => {
                         <div className="about-hero-actions">
 
                             <Link
-                                to="/booking"
+                                to="/booking-schedule"
                                 className="about-primary-button"
                             >
                                 Plan Your Event
@@ -718,7 +718,7 @@ const About = () => {
                         </div>
 
                         <Link
-                            to="/booking"
+                            to="/booking-schedule"
                             className="about-cta-button"
                         >
                             Book Your Event
