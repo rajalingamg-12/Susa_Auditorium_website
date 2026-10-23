@@ -20,6 +20,7 @@ import BookingSchedule from "./Pages/BookingSchedule/BookingSchedule";
 import Payment from "./Pages/Payment/Payment";
 
 import AIChat from "./Components/AIChat/AIChat";
+import ContactButton from "./Components/ContactButton/ContactButton";
 
 function App() {
   return (
@@ -124,6 +125,7 @@ function App() {
           GLOBAL AI CHAT
       ===================================================== */}
       <AIChat />
+      <ContactButton />
 
     </BrowserRouter>
   );

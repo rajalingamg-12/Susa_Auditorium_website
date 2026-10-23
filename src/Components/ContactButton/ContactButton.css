@@ -1,0 +1,180 @@
+/* =========================================================
+   SUSA THIRUMAL AUDITORIUM
+   CONTACT / CALL BUTTON
+========================================================= */
+
+.susa-contact-button {
+  position: fixed;
+  right: 28px;
+  bottom: 105px;
+
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #e6c98e;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #c49a50,
+    #9f7838
+  );
+
+  color: #ffffff;
+  cursor: pointer;
+
+  z-index: 9998;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.22),
+    0 0 0 5px rgba(196, 154, 80, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.susa-contact-button:hover {
+  transform: translateY(-4px) scale(1.06);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    0 0 0 7px rgba(196, 154, 80, 0.13);
+}
+
+.susa-contact-button:active {
+  transform: scale(0.96);
+}
+
+.susa-contact-icon {
+  width: 29px;
+  height: 29px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.susa-contact-button:hover .susa-contact-icon {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+
+/* =========================================================
+   PHONE NUMBER TOOLTIP
+========================================================= */
+
+.susa-contact-tooltip {
+  position: absolute;
+
+  right: 76px;
+  top: 50%;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(196, 154, 80, 0.45);
+  border-radius: 8px;
+
+  background: #10243a;
+  color: #ffffff;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translate(8px, -50%);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+
+  pointer-events: none;
+}
+
+.susa-contact-tooltip::after {
+  content: "";
+
+  position: absolute;
+
+  left: 100%;
+  top: 50%;
+
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #10243a;
+
+  transform: translateY(-50%);
+}
+
+.susa-contact-button:hover .susa-contact-tooltip {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translate(0, -50%);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .susa-contact-button {
+    right: 20px;
+    bottom: 92px;
+
+    width: 58px;
+    height: 58px;
+  }
+
+  .susa-contact-icon {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .susa-contact-button {
+    right: 16px;
+    bottom: 84px;
+
+    width: 54px;
+    height: 54px;
+  }
+
+  .susa-contact-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .susa-contact-tooltip {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .susa-contact-button,
+  .susa-contact-icon,
+  .susa-contact-tooltip {
+    transition: none;
+  }
+}
