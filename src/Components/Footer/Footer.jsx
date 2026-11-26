@@ -57,7 +57,7 @@ const Footer = () => {
               <Link to="/" className="footer-brand">
                 <span className="footer-brand-mark">S</span>
                 <span className="footer-brand-name">
-                  <strong>SUSA</strong>
+                  <strong>SUSA THIRUMAL</strong>
                   <small>AUDITORIUM</small>
                 </span>
               </Link>
@@ -129,12 +129,12 @@ const Footer = () => {
                 <div>
                   <strong>Visit Our Venue</strong>
                   <p>
-                    7/187, Mondaicaud Main Road,
+                    Mandaikadu Main Rd, Mandaikadu,
                     <br />
-                    Mondaicaud – 629252.
+                    Nagercoil, Kanyakumari District,Tamil Nadu- 629252.
                   </p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=7%2F187%2C%20Mondaicaud%20Main%20Road%2C%20Mondaicaud%20629252"
+                    href="https://www.google.com/maps/place/S.U.S.A+Thirumal+Auditorium/@8.1644726,77.2806752,17z/data=!3m1!4b1!4m6!3m5!1s0x3b04fc712d44aa11:0xc31f7fe377218131!8m2!3d8.1644726!4d77.2806752!16s%2Fg%2F11cnwjnxxk?entry=ttu&g_ep=EgoyMDI2MTEyMy4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer-directions-link"
