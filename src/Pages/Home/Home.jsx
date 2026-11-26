@@ -1232,7 +1232,6 @@ const Home = () => {
                             <FiMapPin />
                         </div>
 
-
                         <div className="visit-map-card">
 
                             <span>

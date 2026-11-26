@@ -11,6 +11,8 @@ import {
   FiTruck,
   FiHeart,
   FiChevronUp,
+  FiMessageCircle,
+  FiInstagram,
 } from "react-icons/fi";
 import "./Footer.css";
 
@@ -147,6 +149,38 @@ const Footer = () => {
               <div className="footer-opening-note">
                 <span className="footer-status-dot" />
                 <p>Contact us to discuss your event and booking requirements.</p>
+              </div>
+              <div className="footer-social-contact">
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/s_u_s_a_thirumal_auditorium/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="footer-social-link instagram"
+                >
+                  <FiInstagram />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://api.whatsapp.com/send/?phone=918870995373&text=Hello+SUSA+Thirumal+Auditorium%2C+I+would+like+to+know+more+details+about+booking+an+event.&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="footer-social-link whatsapp"
+                >
+                  <FiMessageCircle />
+                </a>
+
+                {/* Phone */}
+                <a
+                  href="tel:+918870995373"
+                  aria-label="Call us"
+                  className="footer-social-link phone"
+                >
+                  <FiPhone />
+                </a>
               </div>
             </div>
           </div>

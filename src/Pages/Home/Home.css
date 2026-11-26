@@ -2240,7 +2240,7 @@
   display: grid;
   place-items: center;
 
-  border: 8px solid rgba(196, 154, 80, 0.2);
+  /* border: 8px solid rgba(196, 154, 80, 0.2); */
   border-radius: 50%;
 
   background: var(--home-navy);
