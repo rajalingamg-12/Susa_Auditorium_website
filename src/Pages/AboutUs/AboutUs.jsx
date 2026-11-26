@@ -150,7 +150,7 @@ const About = () => {
 
                         <div>
                             <span className="about-section-eyebrow">
-                                ABOUT THE AUDITORIUM
+                                ABOUT OUR AUDITORIUM
                             </span>
 
                             <h2>

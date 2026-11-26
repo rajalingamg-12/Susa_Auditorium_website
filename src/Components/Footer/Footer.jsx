@@ -203,7 +203,7 @@ const Footer = () => {
           {/* BOTTOM FOOTER */}
           <div className="footer-bottom">
             <p>
-              © {currentYear} <strong>SUSA Auditorium</strong>. All rights
+              © {currentYear} <strong>SUSA Thirumal Auditorium</strong>. All rights
               reserved.
             </p>
 

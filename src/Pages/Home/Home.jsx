@@ -426,7 +426,7 @@ const Home = () => {
 
                         <div className="section-eyebrow">
                             <span />
-                            WELCOME TO SUSA AUDITORIUM
+                            WELCOME TO SUSA THIRUMAL AUDITORIUM
                         </div>
 
 
@@ -439,7 +439,7 @@ const Home = () => {
 
                         <p>
                             Every occasion deserves the right setting.
-                            SUSA Auditorium offers a place to gather,
+                            SUSA Thirumal Auditorium offers a place to gather,
                             celebrate and share meaningful moments with
                             family, friends and colleagues.
                         </p>
@@ -761,7 +761,7 @@ const Home = () => {
 
                         <div className="section-eyebrow">
                             <span />
-                            CELEBRATE WITH SUSA
+                            CELEBRATE WITH SUSA THIRUMAL AUDITORIUM
                         </div>
 
                         <h2>
@@ -1170,7 +1170,7 @@ const Home = () => {
                                 </strong>
 
                                 <p>
-                                    Add your complete SUSA Auditorium
+                                    Add your complete SUSA Thirumal Auditorium
                                     address here.
                                 </p>
 
@@ -1236,7 +1236,7 @@ const Home = () => {
                         <div className="visit-map-card">
 
                             <span>
-                                SUSA AUDITORIUM
+                                SUSA THIRUMAL AUDITORIUM
                             </span>
 
                             <h3>

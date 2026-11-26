@@ -437,6 +437,32 @@
     inset 3px 0 0 var(--gold);
 }
 
+/* =========================================================
+ADMIN LOGIN BUTTON 
+========================================================= */ 
+
+.navbar-admin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px 16px;
+  border: 1px solid #c49a50;
+  border-radius: 4px;
+  color: #e6c98e;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.navbar-admin-button:hover {
+  background: #c49a50;
+  color: #091827;
+}
+
 
 /* =========================================================
    BOOK NOW BUTTON
